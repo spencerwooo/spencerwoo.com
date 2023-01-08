@@ -22,7 +22,7 @@ specifiers:
   eslint-plugin-prettier: ^4.2.1
   file-loader: ^6.0.0
   github-slugger: ^2.0.0
-  globby: 11.0.4
+  globby: 11.1.0
   gray-matter: ^4.0.2
   husky: ^8.0.0
   image-size: 1.0.2
@@ -100,7 +100,7 @@ devDependencies:
   eslint-config-prettier: 8.6.0_eslint@8.31.0
   eslint-plugin-prettier: 4.2.1_iu5s7nk6dw7o3tajefwfiqfmge
   file-loader: 6.2.0
-  globby: 11.0.4
+  globby: 11.1.0
   husky: 8.0.3
   js-yaml: 4.1.0
   lint-staged: 13.1.0
@@ -4728,18 +4728,6 @@ packages:
 
   /globalyzer/0.1.0:
     resolution: {integrity: sha512-40oNTM9UfG6aBmuKxk/giHn5nQ8RVz/SS4Ir6zgzOv9/qC3kKZ9v4etGTcJbEl/NyVQH7FGU7d+X1egr57Md2Q==}
-    dev: true
-
-  /globby/11.0.4:
-    resolution: {integrity: sha512-9O4MVG9ioZJ08ffbcyVYyLOJLk5JQ688pJ4eMGLpdWLHq/Wr1D9BlriLQyL0E+jbkuePVZXYFj47QM/v093wHg==}
-    engines: {node: '>=10'}
-    dependencies:
-      array-union: 2.1.0
-      dir-glob: 3.0.1
-      fast-glob: 3.2.12
-      ignore: 5.2.4
-      merge2: 1.4.1
-      slash: 3.0.0
     dev: true
 
   /globby/11.1.0:
