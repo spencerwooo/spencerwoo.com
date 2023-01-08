@@ -17,7 +17,7 @@
     "@tailwindcss/typography": "^0.5.7",
     "@vercel/analytics": "^0.1.6",
     "autoprefixer": "^10.4.13",
-    "contentlayer": "0.2.8",
+    "contentlayer": "0.2.9",
     "esbuild": "0.14.38",
     "github-slugger": "^1.4.0",
     "gray-matter": "^4.0.2",
