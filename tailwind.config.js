@@ -30,7 +30,7 @@ module.exports = {
         sans: ['Inter', ...fontFamily.sans],
       },
       colors: {
-        primary: colors.sky,
+        primary: colors.rose,
         gray: colors.neutral,
       },
       typography: (theme) => ({
