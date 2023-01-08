@@ -1,4 +1,4 @@
-import { useState, ReactNode } from 'react'
+import { ReactNode } from 'react'
 import { Comments } from 'pliny/comments'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog, Authors } from 'contentlayer/generated'
@@ -33,7 +33,7 @@ interface LayoutProps {
 export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
   const { filePath, path, slug, date, title, tags } = content
   const basePath = path.split('/')[0]
-  const [loadComments, setLoadComments] = useState(false)
+  // const [loadComments, setLoadComments] = useState(false)
 
   return (
     <SectionContainer>
@@ -108,10 +108,11 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300"
                   id="comment"
                 >
-                  {!loadComments && (
+                  {/* {!loadComments && (
                     <button onClick={() => setLoadComments(true)}>Load Comments</button>
                   )}
-                  {loadComments && <Comments commentsConfig={siteMetadata.comments} slug={slug} />}
+                  {loadComments && } */}
+                  <Comments commentsConfig={siteMetadata.comments} slug={slug} />
                 </div>
               )}
             </div>
