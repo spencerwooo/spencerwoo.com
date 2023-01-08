@@ -2,7 +2,7 @@ import { Inter } from '@next/font/google'
 import siteMetadata from '@/data/siteMetadata'
 import headerNavLinks from '@/data/headerNavLinks'
 import Image from '@/components/Image'
-import Avatar from '@/data/avatar.png'
+import Avatar from '@/data/avatar.jpg'
 import Link from './Link'
 import SectionContainer from './SectionContainer'
 import Footer from './Footer'
@@ -27,7 +27,13 @@ const LayoutWrapper = ({ children }: Props) => {
             <Link href="/" aria-label={siteMetadata.headerTitle}>
               <div className="flex items-center justify-between">
                 <div className="mr-3">
-                  <Image src={Avatar} alt="avatar" width={48} height={48} />
+                  <Image
+                    src={Avatar}
+                    alt="avatar"
+                    width={48}
+                    height={48}
+                    className="rounded-full"
+                  />
                 </div>
                 {typeof siteMetadata.headerTitle === 'string' ? (
                   <div className="hidden h-6 text-2xl font-semibold sm:block">

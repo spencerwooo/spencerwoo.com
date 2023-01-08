@@ -17,6 +17,7 @@ const siteMetadata = {
   github: 'https://github.com/spencerwooo',
   twitter: 'https://twitter.com/realSpencerWoo',
   weibo: 'https://weibo.com/u/6265807914',
+  rss: '/feed.xml',
   locale: 'en-US',
   analytics: {
     // If you want to use an analytics provider you have to add it to the

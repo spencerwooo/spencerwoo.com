@@ -2,6 +2,7 @@ import Mail from './mail.svg'
 import Github from './github.svg'
 import Twitter from './twitter.svg'
 import Weibo from './sinaweibo.svg'
+import Rss from './rss.svg'
 
 // Icons taken from: https://simpleicons.org/
 
@@ -10,6 +11,7 @@ const components = {
   github: Github,
   twitter: Twitter,
   weibo: Weibo,
+  rss: Rss,
 }
 
 const SocialIcon = ({ kind, href, size = 8 }) => {
