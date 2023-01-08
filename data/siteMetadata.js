@@ -15,7 +15,7 @@ const siteMetadata = {
   socialBanner: '/static/images/twitter-card.png',
   email: 'spencer.wushangbo@gmail.com',
   github: 'https://github.com/spencerwooo',
-  twitter: 'https://twitter.com/@realSpencerWoo',
+  twitter: 'https://twitter.com/realSpencerWoo',
   weibo: 'https://weibo.com/u/6265807914',
   locale: 'en-US',
   analytics: {
