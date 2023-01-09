@@ -82,7 +82,8 @@ module.exports = () => {
           permanent: false,
         },
         {
-          source: '/dowww/*',
+          // match all urls that start with /dowww
+          source: '/dowww/:path*',
           destination: 'https://github.com/spencerwooo/dowww',
           permanent: true,
         },
