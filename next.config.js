@@ -73,6 +73,21 @@ module.exports = () => {
         },
       ]
     },
+    // https://nextjs.org/docs/api-reference/next.config.js/redirects
+    async redirects() {
+      return [
+        {
+          source: '/feed',
+          destination: '/feed.xml',
+          permanent: false,
+        },
+        {
+          source: '/dowww/*',
+          destination: 'https://github.com/spencerwooo/dowww',
+          permanent: true,
+        },
+      ]
+    },
     webpack: (config, options) => {
       config.module.rules.push({
         test: /\.svg$/,
