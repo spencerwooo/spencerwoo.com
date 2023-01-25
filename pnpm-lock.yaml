@@ -22,7 +22,7 @@ specifiers:
   eslint-plugin-prettier: ^4.2.1
   file-loader: ^6.0.0
   github-slugger: ^2.0.0
-  globby: 11.1.0
+  globby: 13.1.3
   gray-matter: ^4.0.2
   husky: ^8.0.0
   image-size: 1.0.2
@@ -100,7 +100,7 @@ devDependencies:
   eslint-config-prettier: 8.6.0_eslint@8.32.0
   eslint-plugin-prettier: 4.2.1_cn4lalcyadplruoxa5mhp7j3dq
   file-loader: 6.2.0
-  globby: 11.1.0
+  globby: 13.1.3
   husky: 8.0.3
   js-yaml: 4.1.0
   lint-staged: 13.1.0
