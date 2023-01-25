@@ -8,4 +8,6 @@ personal blog and portfolio, created by [timlrx/pliny](https://github.com/timlrx
 
 ---
 
-> **Note** this is a new repo, which is not built from notion. original repo is now archived at [spencerwoo.com.archive](https://github.com/spencerwooo/spencerwoo.com.archive).
+> **Note** this is a new repo, which is not built from notion.[^1]
+
+[^1]: original repo is now archived at [spencerwoo.com.archive](https://github.com/spencerwooo/spencerwoo.com.archive).
