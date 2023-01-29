@@ -41,7 +41,7 @@ specifiers:
   react-dom: 18.2.0
   reading-time: 1.5.0
   rehype-autolink-headings: ^6.1.0
-  rehype-citation: ^0.4.0
+  rehype-citation: ^0.5.0
   rehype-katex: ^6.0.2
   rehype-preset-minify: 6.0.0
   rehype-prism-plus: ^1.5.0
@@ -76,7 +76,7 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   reading-time: 1.5.0
   rehype-autolink-headings: 6.1.1
-  rehype-citation: 0.4.0
+  rehype-citation: 0.5.0
   rehype-katex: 6.0.2
   rehype-preset-minify: 6.0.0
   rehype-prism-plus: 1.5.0
@@ -1494,14 +1494,14 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
-  /@citation-js/core/0.5.7:
-    resolution: {integrity: sha512-ywKqOCQfLbm59VjiQCnM7vtx9wlLjDdxU2G27V9gQASKWCAVRIgTLrT8T2PFJMmur6plMZkrsaXR5Ajfpasfug==}
-    engines: {node: '>=10'}
+  /@citation-js/core/0.6.5:
+    resolution: {integrity: sha512-YmfL3wby/oLgggs3hqRcllL0xYOUzTaABChTEEbcfXwrvIstgHzODG1tcPAVg/EVuVH151uMR9xttuzu+Lbxcg==}
+    engines: {node: '>=14.0.0'}
     dependencies:
       '@citation-js/date': 0.5.1
       '@citation-js/name': 0.4.2
-      isomorphic-fetch: 3.0.0
-      sync-fetch: 0.3.1
+      fetch-ponyfill: 7.1.0
+      sync-fetch: 0.4.2
     transitivePeerDependencies:
       - encoding
     dev: false
@@ -1516,36 +1516,36 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  /@citation-js/plugin-bibjson/0.5.7_@citation-js+core@0.5.7:
-    resolution: {integrity: sha512-aRPMZ5hLsb9rLH5JxWP374Q+KKAiPF5ejgY3e8ftyNvvhCCNXwBIvrJk8hdACpIF3x7SKWgZVkz/4i5vHJiavw==}
-    engines: {node: '>=10'}
+  /@citation-js/plugin-bibjson/0.6.5_@citation-js+core@0.6.5:
+    resolution: {integrity: sha512-SiWVgwWOs/up2FxAJlx56QPoWXDsjXMhVz0VUjzmS6bm+PXmqtzNDmqTCwf/CVgYWKl7UJStmsuB4WgnTlGBBA==}
+    engines: {node: '>=14.0.0'}
     peerDependencies:
-      '@citation-js/core': ^0.5.0-alpha.0
+      '@citation-js/core': ^0.6.0
     dependencies:
-      '@citation-js/core': 0.5.7
+      '@citation-js/core': 0.6.5
       '@citation-js/date': 0.5.1
       '@citation-js/name': 0.4.2
     dev: false
 
-  /@citation-js/plugin-bibtex/0.5.7_@citation-js+core@0.5.7:
-    resolution: {integrity: sha512-g/4hA0N+/uYFDb7SUWEaIZm1hLK5AYNdmR+mB8T5kCoQ0vZS63Z0NaZMrZY8btPvX2cCHpPv8r2rmhOjnZKuvA==}
-    engines: {node: '>=10'}
+  /@citation-js/plugin-bibtex/0.6.5_@citation-js+core@0.6.5:
+    resolution: {integrity: sha512-J4zdfScylT6jiTdUxMiBndV1ERDvq87IE5lm9blIMesPAIdf4bN++n0tNczNnJy6TbdlNK9tB0HTwIJe6J/GnA==}
+    engines: {node: '>=14.0.0'}
     peerDependencies:
-      '@citation-js/core': ^0.5.0-alpha.0
+      '@citation-js/core': ^0.6.0
     dependencies:
-      '@citation-js/core': 0.5.7
+      '@citation-js/core': 0.6.5
       '@citation-js/date': 0.5.1
       '@citation-js/name': 0.4.2
       moo: 0.5.2
     dev: false
 
-  /@citation-js/plugin-csl/0.5.7_@citation-js+core@0.5.7:
-    resolution: {integrity: sha512-RuFIBi9KhmNmzOJZs24UBM5olvY71hJZ+qNnY89YIfszoMJHdotYc/NRmHlM/dSMy9A3BbnDC6WzDIpYZGuU6w==}
-    engines: {node: '>=10'}
+  /@citation-js/plugin-csl/0.6.5_@citation-js+core@0.6.5:
+    resolution: {integrity: sha512-1RcKAJpAF+hWjTebAhO99EGB1z6aL/GMNohZblRrhxpUelQvXp192CAjpS/riXpRDX6acLV7Q/qtcdi3ujzwBw==}
+    engines: {node: '>=14.0.0'}
     peerDependencies:
-      '@citation-js/core': ^0.5.0-alpha.0
+      '@citation-js/core': ^0.6.0
     dependencies:
-      '@citation-js/core': 0.5.7
+      '@citation-js/core': 0.6.5
       '@citation-js/date': 0.5.1
       citeproc: 2.4.62
     dev: false
@@ -4523,6 +4523,14 @@ packages:
       web-streams-polyfill: 3.2.1
     dev: false
 
+  /fetch-ponyfill/7.1.0:
+    resolution: {integrity: sha512-FhbbL55dj/qdVO3YNK7ZEkshvj3eQ7EuIGV2I6ic/2YiocvyWv+7jg2s4AyS0wdRU75s3tA8ZxI/xPigb0v5Aw==}
+    dependencies:
+      node-fetch: 2.6.7
+    transitivePeerDependencies:
+      - encoding
+    dev: false
+
   /file-entry-cache/6.0.1:
     resolution: {integrity: sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==}
     engines: {node: ^10.12.0 || >=12.0.0}
@@ -5313,15 +5321,6 @@ packages:
   /isexe/2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
     dev: true
-
-  /isomorphic-fetch/3.0.0:
-    resolution: {integrity: sha512-qvUtwJ3j6qwsF3jLxkZ72qCgjMysPzDfeV240JHiGZsANBYd+EEuu35v7dfrJ9Up0Ak07D7GGSkGhCHTqg/5wA==}
-    dependencies:
-      node-fetch: 2.6.7
-      whatwg-fetch: 3.6.2
-    transitivePeerDependencies:
-      - encoding
-    dev: false
 
   /js-sdsl/4.2.0:
     resolution: {integrity: sha512-dyBIzQBDkCqCu+0upx25Y2jGdbTGxE9fshMsCdK0ViOongpV+n5tXRcZY9v7CaVQ79AGS9KA1KHtojxiM7aXSQ==}
@@ -7017,41 +7016,20 @@ packages:
       unist-util-visit: 4.1.1
     dev: false
 
-  /rehype-citation/0.2.5:
-    resolution: {integrity: sha512-d4s4JPjjCqB7xqeIz7qf4oemhuTcFhYDvP57ciOwymLsaDiQhfOq6iJsnCBXmBP8a4O2EHDsQg5mwUTMIKBfRA==}
+  /rehype-citation/0.5.0:
+    resolution: {integrity: sha512-mbfg30SvvJZ37Hgh9ilLyzyKr+xD1LrrQfsGxAVSOxJv1euFL00Ae+Gz2T0+ScdNK0RvfP/NTAM1nRqhBQCYwA==}
     dependencies:
-      '@citation-js/core': 0.5.7
+      '@citation-js/core': 0.6.5
       '@citation-js/date': 0.5.1
       '@citation-js/name': 0.4.2
-      '@citation-js/plugin-bibjson': 0.5.7_@citation-js+core@0.5.7
-      '@citation-js/plugin-bibtex': 0.5.7_@citation-js+core@0.5.7
-      '@citation-js/plugin-csl': 0.5.7_@citation-js+core@0.5.7
+      '@citation-js/plugin-bibjson': 0.6.5_@citation-js+core@0.6.5
+      '@citation-js/plugin-bibtex': 0.6.5_@citation-js+core@0.6.5
+      '@citation-js/plugin-csl': 0.6.5_@citation-js+core@0.6.5
       citeproc: 2.4.62
       cross-fetch: 3.1.5
       hast-util-from-dom: 4.1.0
       hast-util-from-parse5: 7.1.0
       parse5: 6.0.1
-      unified: 10.1.2
-      unist-util-visit: 4.1.1
-    transitivePeerDependencies:
-      - encoding
-    dev: false
-
-  /rehype-citation/0.4.0:
-    resolution: {integrity: sha512-W2QAgZBepcu+Npg7jJZ2d/JGd+bDShKT5Ux2np7xsut7DMfL8cpG0ANCEYsUP8lFlt6+UlpI9404lHwW5zCQ7Q==}
-    dependencies:
-      '@citation-js/core': 0.5.7
-      '@citation-js/date': 0.5.1
-      '@citation-js/name': 0.4.2
-      '@citation-js/plugin-bibjson': 0.5.7_@citation-js+core@0.5.7
-      '@citation-js/plugin-bibtex': 0.5.7_@citation-js+core@0.5.7
-      '@citation-js/plugin-csl': 0.5.7_@citation-js+core@0.5.7
-      citeproc: 2.4.62
-      cross-fetch: 3.1.5
-      hast-util-from-dom: 4.1.0
-      hast-util-from-parse5: 7.1.0
-      parse5: 6.0.1
-      rehype-citation: 0.2.5
       unified: 10.1.2
       unist-util-visit: 4.1.1
     transitivePeerDependencies:
@@ -7860,9 +7838,9 @@ packages:
       stable: 0.1.8
     dev: true
 
-  /sync-fetch/0.3.1:
-    resolution: {integrity: sha512-xj5qiCDap/03kpci5a+qc5wSJjc8ZSixgG2EUmH1B8Ea2sfWclQA7eH40hiHPCtkCn6MCk4Wb+dqcXdCy2PP3g==}
-    engines: {node: '>=8'}
+  /sync-fetch/0.4.2:
+    resolution: {integrity: sha512-vilDD6yTGwyUjm7/W5WUUOCw1GH1aV591zC21XhbV6MJNZqfZcNMs9DVPHzy1UAmQ2GAg6S03F5TQ3paegKSdg==}
+    engines: {node: '>=14'}
     dependencies:
       buffer: 5.7.1
       node-fetch: 2.6.7
@@ -8255,10 +8233,6 @@ packages:
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
-    dev: false
-
-  /whatwg-fetch/3.6.2:
-    resolution: {integrity: sha512-bJlen0FcuU/0EMLrdbJ7zOnW6ITZLrZMIarMUVmdKtsGvZna8vxKYaexICWPfZ8qwf9fzNq+UEIZrnSaApt6RA==}
     dev: false
 
   /whatwg-url/5.0.0:
