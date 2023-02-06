@@ -33,7 +33,7 @@ specifiers:
   next: 13.1.6
   next-contentlayer: 0.2.9
   next-themes: ^0.2.0
-  pliny: 0.0.9
+  pliny: 0.0.10
   postcss: ^8.4.16
   prettier: ^2.8.3
   prettier-plugin-tailwindcss: ^0.2.1
@@ -70,7 +70,7 @@ dependencies:
   next: 13.1.6_biqbaboplfbrettd7655fr4n2y
   next-contentlayer: 0.2.9_k6mpier3aiqxazwk6efy5x6ytu
   next-themes: 0.2.1_3vryta7zmbcsw4rrqf4axjqggm
-  pliny: 0.0.9_pkduyezbcgaj6gglsge4sw2p7e
+  pliny: 0.0.10_pkduyezbcgaj6gglsge4sw2p7e
   postcss: 8.4.21
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -6654,8 +6654,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /pliny/0.0.9_pkduyezbcgaj6gglsge4sw2p7e:
-    resolution: {integrity: sha512-m/3uUevpKaNlUT+znBkGixWyTWCpLJWm4+knSRVREl7RgZAvzXZcu5HRhBEAG9XwS94shgIlHXOD5xiDhR218A==}
+  /pliny/0.0.10_pkduyezbcgaj6gglsge4sw2p7e:
+    resolution: {integrity: sha512-QhH8fdTtZ1xKsMOC+ZKD3yWDKfNJDgfHIoj/P+UV9J3aCch3s0mOONMiw+dFdiG7TtYyeldRRtskmHjzA5PgRw==}
     peerDependencies:
       next: '>=12.0.0'
       react: ^17.0.2 || ^18.0.0
