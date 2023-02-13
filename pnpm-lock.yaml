@@ -41,7 +41,7 @@ specifiers:
   react-dom: 18.2.0
   reading-time: 1.5.0
   rehype-autolink-headings: ^6.1.0
-  rehype-citation: ^0.5.0
+  rehype-citation: ^1.0.0
   rehype-katex: ^6.0.2
   rehype-preset-minify: 6.0.0
   rehype-prism-plus: ^1.5.0
@@ -76,7 +76,7 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   reading-time: 1.5.0
   rehype-autolink-headings: 6.1.1
-  rehype-citation: 0.5.0
+  rehype-citation: 1.0.0
   rehype-katex: 6.0.2
   rehype-preset-minify: 6.0.0
   rehype-prism-plus: 1.5.0
@@ -7016,8 +7016,8 @@ packages:
       unist-util-visit: 4.1.1
     dev: false
 
-  /rehype-citation/0.5.0:
-    resolution: {integrity: sha512-mbfg30SvvJZ37Hgh9ilLyzyKr+xD1LrrQfsGxAVSOxJv1euFL00Ae+Gz2T0+ScdNK0RvfP/NTAM1nRqhBQCYwA==}
+  /rehype-citation/1.0.0:
+    resolution: {integrity: sha512-D0BoMl/QorELjd10DQGtfEFvJZ3IKqf95QUl+++ZaubQwKxt9SXaIGBeZfVfhEg0qoqVY/g+SfLgjs0rB7Zblg==}
     dependencies:
       '@citation-js/core': 0.6.5
       '@citation-js/date': 0.5.1
