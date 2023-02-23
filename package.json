@@ -12,8 +12,8 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@next/bundle-analyzer": "13.1.6",
-    "@next/font": "13.1.6",
+    "@next/bundle-analyzer": "13.2.0",
+    "@next/font": "13.2.0",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.9",
     "@vercel/analytics": "^0.1.10",
@@ -25,7 +25,7 @@
     "image-size": "1.0.2",
     "katex": "^0.16.4",
     "mdx-bundler": "^9.0.0",
-    "next": "13.1.6",
+    "next": "13.2.0",
     "next-contentlayer": "0.3.0",
     "next-themes": "^0.2.0",
     "pliny": "0.0.10",
@@ -54,7 +54,7 @@
     "dedent": "^0.7.0",
     "esbuild-register": "3.4.2",
     "eslint": "^8.34.0",
-    "eslint-config-next": "13.1.6",
+    "eslint-config-next": "13.2.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "file-loader": "^6.0.0",
