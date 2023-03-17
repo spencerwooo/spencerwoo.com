@@ -19,7 +19,7 @@
     "@vercel/analytics": "^0.1.10",
     "autoprefixer": "^10.4.13",
     "contentlayer": "0.3.0",
-    "esbuild": "0.17.11",
+    "esbuild": "0.17.12",
     "github-slugger": "^2.0.0",
     "gray-matter": "^4.0.2",
     "image-size": "1.0.2",
