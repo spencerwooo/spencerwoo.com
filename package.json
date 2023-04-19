@@ -16,7 +16,7 @@
     "@next/font": "13.3.0",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.9",
-    "@vercel/analytics": "^0.1.10",
+    "@vercel/analytics": "^1.0.0",
     "autoprefixer": "^10.4.13",
     "contentlayer": "0.3.0",
     "esbuild": "0.17.15",
