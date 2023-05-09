@@ -46,7 +46,7 @@
     "unist-util-visit": "^4.1.2"
   },
   "devDependencies": {
-    "@svgr/webpack": "^7.0.0",
+    "@svgr/webpack": "^8.0.0",
     "@types/react": "^18.0.28",
     "@typescript-eslint/eslint-plugin": "^5.53.0",
     "@typescript-eslint/parser": "^5.53.0",
