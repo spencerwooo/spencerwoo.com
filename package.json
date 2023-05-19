@@ -26,7 +26,7 @@
     "katex": "^0.16.4",
     "mdx-bundler": "^9.0.0",
     "next": "13.4.3",
-    "next-contentlayer": "0.3.0",
+    "next-contentlayer": "0.3.2",
     "next-themes": "^0.2.0",
     "pliny": "0.0.10",
     "postcss": "^8.4.16",

@@ -44,8 +44,8 @@ dependencies:
     specifier: 13.4.3
     version: 13.4.3(@babel/core@7.21.3)(@opentelemetry/api@1.1.0)(react-dom@18.2.0)(react@18.2.0)
   next-contentlayer:
-    specifier: 0.3.0
-    version: 0.3.0(esbuild@0.17.15)(next@13.4.3)(react-dom@18.2.0)(react@18.2.0)
+    specifier: 0.3.2
+    version: 0.3.2(esbuild@0.17.15)(next@13.4.3)(react-dom@18.2.0)(react@18.2.0)(typescript@5.0.2)
   next-themes:
     specifier: ^0.2.0
     version: 0.2.1(next@13.4.3)(react-dom@18.2.0)(react@18.2.0)
@@ -1719,6 +1719,36 @@ packages:
       - supports-color
     dev: false
 
+  /@contentlayer/core@0.3.2(esbuild@0.17.15)(typescript@5.0.2):
+    resolution: {integrity: sha512-5ZLzS3s4Lp5Tlw+U4kUUK9frYmi8sc970spJSvLSxtOTDHDE7xemGT9HSj0V4DcmIkY9TT7pCmMFRfpEv7IC6Q==}
+    peerDependencies:
+      esbuild: 0.17.x
+      markdown-wasm: 1.x
+    peerDependenciesMeta:
+      esbuild:
+        optional: true
+      markdown-wasm:
+        optional: true
+    dependencies:
+      '@contentlayer/utils': 0.3.2(typescript@5.0.2)
+      camel-case: 4.1.2
+      comment-json: 4.2.3
+      esbuild: 0.17.15
+      gray-matter: 4.0.3
+      mdx-bundler: 9.2.1(esbuild@0.17.15)
+      rehype-stringify: 9.0.3
+      remark-frontmatter: 4.0.1
+      remark-parse: 10.0.1
+      remark-rehype: 10.1.0
+      source-map-support: 0.5.21
+      type-fest: 3.10.0(typescript@5.0.2)
+      unified: 10.1.2
+    transitivePeerDependencies:
+      - '@effect-ts/otel-node'
+      - supports-color
+      - typescript
+    dev: false
+
   /@contentlayer/source-files@0.2.8(esbuild@0.17.15):
     resolution: {integrity: sha512-DC2v7YrAP8VrYX9uLDATVrcPmMXU4jlXtiLG9CUNyRTgYJEsdVQHsRtEM0793bX62aMGcWslX8YnQEO7VsM2Aw==}
     dependencies:
@@ -1729,7 +1759,7 @@ packages:
       gray-matter: 4.0.3
       imagescript: 1.2.15
       micromatch: 4.0.5
-      ts-pattern: 4.1.4
+      ts-pattern: 4.3.0
       unified: 10.1.2
       yaml: 1.10.2
       zod: 3.21.4
@@ -1801,8 +1831,8 @@ packages:
       chokidar: 3.5.3
       hash-wasm: 4.9.0
       inflection: 1.13.4
-      oo-ascii-tree: 1.74.0
-      ts-pattern: 4.1.4
+      oo-ascii-tree: 1.81.0
+      ts-pattern: 4.3.0
       type-fest: 2.19.0
     dev: false
 
@@ -1836,6 +1866,41 @@ packages:
       oo-ascii-tree: 1.74.0
       ts-pattern: 4.1.4
       type-fest: 3.5.7
+    dev: false
+
+  /@contentlayer/utils@0.3.2(typescript@5.0.2):
+    resolution: {integrity: sha512-qQdL3PN3zKl7monHe3EXlXgq7/raApWWJ7+2n0C81ESiwdM1ZFuHU+pOIkl5JWhotTkqAqYdSvFuM+MAXF8XFg==}
+    peerDependencies:
+      '@effect-ts/otel-node': '*'
+    peerDependenciesMeta:
+      '@effect-ts/core':
+        optional: true
+      '@effect-ts/otel':
+        optional: true
+      '@effect-ts/otel-node':
+        optional: true
+    dependencies:
+      '@effect-ts/core': 0.60.5
+      '@effect-ts/otel': 0.14.1(@effect-ts/core@0.60.5)(@opentelemetry/api@1.1.0)(@opentelemetry/core@1.5.0)(@opentelemetry/sdk-trace-base@1.5.0)
+      '@effect-ts/otel-exporter-trace-otlp-grpc': 0.14.1(@effect-ts/core@0.60.5)(@opentelemetry/api@1.1.0)(@opentelemetry/core@1.5.0)(@opentelemetry/exporter-trace-otlp-grpc@0.31.0)(@opentelemetry/sdk-trace-base@1.5.0)
+      '@effect-ts/otel-sdk-trace-node': 0.14.1(@effect-ts/core@0.60.5)(@opentelemetry/api@1.1.0)(@opentelemetry/core@1.5.0)(@opentelemetry/sdk-trace-base@1.5.0)(@opentelemetry/sdk-trace-node@1.5.0)
+      '@js-temporal/polyfill': 0.4.3
+      '@opentelemetry/api': 1.1.0
+      '@opentelemetry/core': 1.5.0(@opentelemetry/api@1.1.0)
+      '@opentelemetry/exporter-trace-otlp-grpc': 0.31.0(@opentelemetry/api@1.1.0)
+      '@opentelemetry/resources': 1.5.0(@opentelemetry/api@1.1.0)
+      '@opentelemetry/sdk-trace-base': 1.5.0(@opentelemetry/api@1.1.0)
+      '@opentelemetry/sdk-trace-node': 1.5.0(@opentelemetry/api@1.1.0)
+      '@opentelemetry/semantic-conventions': 1.5.0
+      chokidar: 3.5.3
+      hash-wasm: 4.9.0
+      inflection: 2.0.1
+      memfs: 3.5.1
+      oo-ascii-tree: 1.81.0
+      ts-pattern: 4.3.0
+      type-fest: 3.10.0(typescript@5.0.2)
+    transitivePeerDependencies:
+      - typescript
     dev: false
 
   /@docsearch/css@3.3.3:
@@ -4805,6 +4870,10 @@ packages:
     resolution: {integrity: sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==}
     dev: false
 
+  /fs-monkey@1.0.3:
+    resolution: {integrity: sha512-cybjIfiiE+pTWicSCLFHSrXZ6EilF30oh91FDP9S2B051prEa7QWfrVTQm10/dDpswBDXZugPa1Ogu8Yh+HV0Q==}
+    dev: false
+
   /fs.realpath@1.0.0:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
     dev: true
@@ -6031,6 +6100,13 @@ packages:
       - supports-color
     dev: false
 
+  /memfs@3.5.1:
+    resolution: {integrity: sha512-UWbFJKvj5k+nETdteFndTpYxdeTMox/ULeqX5k/dpaQJCCFmj5EeKv3dBcyO2xmkRAx2vppRu5dVG7SOtsGOzA==}
+    engines: {node: '>= 4.0.0'}
+    dependencies:
+      fs-monkey: 1.0.3
+    dev: false
+
   /merge-stream@2.0.0:
     resolution: {integrity: sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==}
     dev: true
@@ -6504,15 +6580,15 @@ packages:
       - supports-color
     dev: false
 
-  /next-contentlayer@0.3.0(esbuild@0.17.15)(next@13.4.3)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-vt+RaD3nIgZ6oXadtZH19a1mpxvGEoiifdtmXqBSz4rHMRcMA1YZCuSWyj+P9uX7MDmIL6JT6QSp+hvTBMaxiw==}
+  /next-contentlayer@0.3.2(esbuild@0.17.15)(next@13.4.3)(react-dom@18.2.0)(react@18.2.0)(typescript@5.0.2):
+    resolution: {integrity: sha512-pihb/VtBq30eV+WpaWakWVtA1DWKzfXeaL7l/vR4MvrTO8UtZaX9H6wY0oSOqrmy674BRjXiQ03PbEOE5D6/iA==}
     peerDependencies:
       next: ^12 || ^13
       react: '*'
       react-dom: '*'
     dependencies:
-      '@contentlayer/core': 0.3.0(esbuild@0.17.15)
-      '@contentlayer/utils': 0.3.0
+      '@contentlayer/core': 0.3.2(esbuild@0.17.15)(typescript@5.0.2)
+      '@contentlayer/utils': 0.3.2(typescript@5.0.2)
       next: 13.4.3(@babel/core@7.21.3)(@opentelemetry/api@1.1.0)(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -6521,6 +6597,7 @@ packages:
       - esbuild
       - markdown-wasm
       - supports-color
+      - typescript
     dev: false
 
   /next-themes@0.2.1(next@13.4.3)(react-dom@18.2.0)(react@18.2.0):
@@ -6726,6 +6803,11 @@ packages:
 
   /oo-ascii-tree@1.74.0:
     resolution: {integrity: sha512-tV5BBZhFvALFKY/DMVILN5jDznPRZte0Yoj1hPmbAVGL4VSpsEXx0ZrP8fnFZKbAOyCwWq+PV26n7S5+cP86Xw==}
+    engines: {node: '>= 14.6.0'}
+    dev: false
+
+  /oo-ascii-tree@1.81.0:
+    resolution: {integrity: sha512-rfGg7tBvwiNrdP5MqVUGt/4Kwiy9y7Y6G3z6Nue5hhd0pHiAAyDVJ/GcwfW3cjMDrWlJ/itg+QuXREA1yfwynA==}
     engines: {node: '>= 14.6.0'}
     dev: false
 
@@ -8282,6 +8364,10 @@ packages:
     resolution: {integrity: sha512-Mcw65oUd1w5ktKi5BRwrnz16Otwk9iv7P0dKgvbi+A1albCDgnixohSqNLuFwIp5dzxPmTPm0iDQ6p1ZJr9uGw==}
     dev: false
 
+  /ts-pattern@4.3.0:
+    resolution: {integrity: sha512-pefrkcd4lmIVR0LA49Imjf9DYLK8vtWhqBPA3Ya1ir8xCW0O2yjL9dsCVvI7pCodLC5q7smNpEtDR2yVulQxOg==}
+    dev: false
+
   /tsconfig-paths@3.14.1:
     resolution: {integrity: sha512-fxDhWnFSLt3VuTwtvJt5fpwxBHg5AdKWMsgcPOOIilyjymcYVZoCQF8fvFRezCNfblEXmi+PcM1eYHeOAgXCOQ==}
     dependencies:
@@ -8334,6 +8420,15 @@ packages:
     engines: {node: '>=12.20'}
     dev: false
 
+  /type-fest@3.10.0(typescript@5.0.2):
+    resolution: {integrity: sha512-hmAPf1datm+gt3c2mvu0sJyhFy6lTkIGf0GzyaZWxRLnabQfPUqg6tF95RPg6sLxKI7nFLGdFxBcf2/7+GXI+A==}
+    engines: {node: '>=14.16'}
+    peerDependencies:
+      typescript: '>=4.7.0'
+    dependencies:
+      typescript: 5.0.2
+    dev: false
+
   /type-fest@3.5.7:
     resolution: {integrity: sha512-6J4bYzb4sdkcLBty4XW7F18VPI66M4boXNE+CY40532oq2OJe6AVMB5NmjOp6skt/jw5mRjz/hLRpuglz0U+FA==}
     engines: {node: '>=14.16'}
@@ -8351,7 +8446,6 @@ packages:
     resolution: {integrity: sha512-wVORMBGO/FAs/++blGNeAVdbNKtIh1rbBL2EyQ1+J9lClJ93KiiKe8PmFIVdXhHcyv44SL9oglmfeSsndo0jRw==}
     engines: {node: '>=12.20'}
     hasBin: true
-    dev: true
 
   /uglify-js@3.17.4:
     resolution: {integrity: sha512-T9q82TJI9e/C1TAxYvfb16xO120tMVFZrGA3f9/P4424DNu6ypK103y0GPFVa17yotwSyZW5iYXgjYHkGrJW/g==}
