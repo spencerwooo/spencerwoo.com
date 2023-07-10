@@ -51,7 +51,7 @@
     "@typescript-eslint/eslint-plugin": "^5.59.7",
     "@typescript-eslint/parser": "^5.59.7",
     "cross-env": "^7.0.3",
-    "dedent": "^0.7.0",
+    "dedent": "^1.0.0",
     "esbuild-register": "3.4.2",
     "eslint": "^8.41.0",
     "eslint-config-next": "13.4.3",
