@@ -25,7 +25,7 @@ module.exports = {
         sans: ['var(--font-figtree)', ...fontFamily.serif],
       },
       colors: {
-        primary: colors.pink,
+        primary: colors.rose,
         gray: colors.gray,
       },
       typography: ({ theme }) => ({
