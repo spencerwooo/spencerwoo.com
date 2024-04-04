@@ -1,20 +1,34 @@
-import Mail from './mail.svg'
-import Github from './github.svg'
-import Twitter from './twitter.svg'
-import Weibo from './sinaweibo.svg'
-import Rss from './rss.svg'
-
-// Icons taken from: https://simpleicons.org/
+import {
+  Mail,
+  Github,
+  Facebook,
+  Youtube,
+  Linkedin,
+  Twitter,
+  Mastodon,
+  Threads,
+  Instagram,
+} from './icons'
 
 const components = {
   mail: Mail,
   github: Github,
+  facebook: Facebook,
+  youtube: Youtube,
+  linkedin: Linkedin,
   twitter: Twitter,
-  weibo: Weibo,
-  rss: Rss,
+  mastodon: Mastodon,
+  threads: Threads,
+  instagram: Instagram,
 }
 
-const SocialIcon = ({ kind, href, size = 8 }) => {
+type SocialIconProps = {
+  kind: keyof typeof components
+  href: string | undefined
+  size?: number
+}
+
+const SocialIcon = ({ kind, href, size = 8 }: SocialIconProps) => {
   if (!href || (kind === 'mail' && !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href)))
     return null
 
@@ -29,7 +43,7 @@ const SocialIcon = ({ kind, href, size = 8 }) => {
     >
       <span className="sr-only">{kind}</span>
       <SocialSvg
-        className={`fill-current text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 h-${size} w-${size}`}
+        className={`fill-current text-gray-700 hover:text-primary-500 dark:text-gray-200 dark:hover:text-primary-400 h-${size} w-${size}`}
       />
     </a>
   )

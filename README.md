@@ -1,6 +1,6 @@
 <samp><a href="https://spencerwoo.com" target="_blank" rel="noopener noreferrer">spencerwoo.com</a></samp>
 
-personal blog and portfolio, created by [timlrx/pliny](https://github.com/timlrx/pliny).
+personal blog and portfolio.
 
 <br>
 
