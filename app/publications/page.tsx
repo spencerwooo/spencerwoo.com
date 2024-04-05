@@ -26,7 +26,10 @@ export default function Projects() {
                 authors={d.authors}
                 href={d.href}
                 imgSrc={d.imgSrc}
-                tags={d.tags}
+                tag={d.tag}
+                tagColor={d.tagColor}
+                publisher={d.publisher}
+                publishDate={d.publishDate}
               />
             ))}
           </div>

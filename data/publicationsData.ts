@@ -4,36 +4,46 @@ interface Project {
   authors: string
   href: string
   imgSrc: string
-  tags: string[]
+  tag?: string
+  tagColor?: string
+  publisher: string
+  publishDate: string
 }
 
 const projectsData: Project[] = [
   {
     title: '*Towards transferable adversarial attacks with centralized perturbation',
     description:
-      'A transferable adversarial attack via dynamic, fine-grained centralization of perturbation on dominating frequency coefficients. (March 24, 2024)',
+      'A transferable adversarial attack via dynamic, fine-grained centralization of perturbation on dominating frequency coefficients.',
     authors: 'Shangbo Wu*, Yu-an Tan, Yajie Wang, Ruinan Ma, Wencong Ma, Yuanzhang Li^',
     href: 'https://doi.org/10.1609/aaai.v38i6.28427',
     imgSrc: '/static/images/centralized-perturbation.jpg',
-    tags: ['AAAI', '2024'],
+    tag: 'AAAI-24',
+    tagColor: '#0284c7',
+    publisher: 'Proceedings of the AAAI Conference on Artificial Intelligence',
+    publishDate: 'March 2024',
   },
   {
     title: 'Toward feature space adversarial attack in the frequency domain',
-    description: 'Attacking in the feature space via spectral transformation. (Aug 29, 2022)',
+    description: 'Attacking in the feature space via spectral transformation.',
     authors: 'Yajie Wang*, Yu-an Tan, Haoran Lyu, Shangbo Wu, Yuhang Zhao, Yuanzhang Li^',
     href: 'https://doi.org/10.1002/int.23031',
     imgSrc: '/static/images/feature-space-attack.png',
-    tags: ['2022'],
+    publisher: 'International Journal of Intelligent Systems',
+    publishDate: 'Aug 2022',
   },
   {
     title:
       '*Demiguise attack: Crafting invisible semantic adversarial perturbations with perceptual similarity',
     description:
-      'Leveraging perceptual similarity to craft adversarial perturbations that are invisible to humans. (July 3, 2021)',
+      'Leveraging perceptual similarity to craft adversarial perturbation that is invisible to humans.',
     authors: 'Yajie Wang*, Shangbo Wu*, Wenyi Jiang, Shengang Hao, Yu-an Tan, Quanxin Zhang^',
     href: 'https://doi.org/10.24963/ijcai.2021/430',
     imgSrc: '/static/images/demiguise-attack.png',
-    tags: ['IJCAI', '2021'],
+    tag: 'IJCAI-21',
+    tagColor: '#ec4899',
+    publisher: 'International Joint Conference on Artificial Intelligence',
+    publishDate: 'July 2021',
   },
 ]
 
