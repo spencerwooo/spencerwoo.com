@@ -24,7 +24,7 @@ const Card = ({
         />
       </Link>
 
-      <div className="w-5/6 p-6">
+      <div className="p-6 md:w-5/6">
         <p
           className="mb-2 inline-block rounded-sm px-1.5 text-sm font-bold text-white shadow-lg"
           style={{ backgroundColor: tagColor }}
