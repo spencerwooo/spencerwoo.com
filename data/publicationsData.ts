@@ -29,6 +29,8 @@ const projectsData: Project[] = [
     authors: 'Yajie Wang*, Yu-an Tan, Haoran Lyu, Shangbo Wu, Yuhang Zhao, Yuanzhang Li^',
     href: 'https://doi.org/10.1002/int.23031',
     imgSrc: '/static/images/feature-space-attack.png',
+    tag: 'Journal',
+    tagColor: '#f59e0b',
     publisher: 'International Journal of Intelligent Systems',
     publishDate: 'Aug 2022',
   },

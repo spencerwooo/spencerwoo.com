@@ -18,20 +18,20 @@ const Card = ({
         <Image
           alt={title}
           src={imgSrc}
-          className="h-48 w-full object-cover object-center md:h-full md:w-80"
+          className="h-48 w-full border-r object-cover object-center p-2 md:h-full md:w-56"
           width={300}
-          height={200}
+          height={300}
         />
       </Link>
 
-      <div className="p-6 md:w-5/6">
+      <div className="p-4 md:w-5/6">
         <p
           className="mb-2 inline-block rounded-sm px-1.5 text-sm font-bold text-white shadow-lg"
           style={{ backgroundColor: tagColor }}
         >
           {tag}
         </p>
-        <h2 className="mb-1 text-xl font-bold leading-8 tracking-tight transition-all duration-150 hover:text-primary-700 hover:underline">
+        <h2 className="mb-1 text-lg font-bold leading-8 tracking-tight transition-all duration-150 hover:text-primary-700 hover:underline">
           <Link href={href} aria-label={`Link to ${title}`}>
             {title}
           </Link>
@@ -48,8 +48,10 @@ const Card = ({
             }
           })}
         </p>
-        <p className="prose mb-2 max-w-none text-gray-500 dark:text-gray-400">{description}</p>
-        <p className="prose font-light text-primary-600">
+        <p className="prose mb-2 max-w-none text-sm text-gray-500 dark:text-gray-400">
+          {description}
+        </p>
+        <p className="prose text-xs font-light text-primary-600">
           <em>{publisher}</em>, {publishDate}
         </p>
       </div>
