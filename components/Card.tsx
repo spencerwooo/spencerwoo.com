@@ -20,7 +20,7 @@ const Card = ({
           src={imgSrc}
           className="h-48 w-full border-r object-cover object-center p-2 md:h-full md:w-56"
           width={300}
-          height={300}
+          height={200}
         />
       </Link>
 
