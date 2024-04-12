@@ -11,7 +11,7 @@ tags: ['notion']
 
 </aside>
 
-![/static/images/nextjs-blog-notion.png](/static/images/nextjs-blog-notion.png)
+![/static/images/nextjs-blog-notion/nextjs-blog-notion.png](/static/images/nextjs-blog-notion/nextjs-blog-notion.png)
 
 Yup, yup, yup! (Paimon noises 🥁) **My blog, that you are currently reading, is now officially powered by the one and only — Notion!** Not only is my site still _clean, uncluttered, and performative_, but I can now get rid of all the annoying stuff where I have to manually write and push Markdown in VS Code, upload my images to a CDN through some poorly managed script, and rebuild my blog each time I publish new content. Notion has that sweet sweet rich-content management experience, why not use Notion as my blog's CMS?
 
@@ -39,7 +39,7 @@ The first layer, pulling content, defines where and how our blog's data is comin
 
 The second layer, rendering the content, is handled by our website generator, where it makes use of the data that we provide in the first layer, and compiles / renders the website on demand. Again, conventional blog engines (Hexo, Hugo, Jekyll) get their data during build-time, and requires rebuilding the entire site when data is updated (like updating articles, publishing new articles, etc.). Newer frameworks (like Next.js) are able to take advantage of "server-side rendering" (SSR) that guarantees to return the newest content pulled from layer one without having to rebuild or re-render the whole site.
 
-![How content from data source is pulled and generated into websites like our blogs](/static/images/diagram.png)
+![How content from data source is pulled and generated into websites like our blogs](/static/images/nextjs-blog-notion/diagram.png)
 
 How content from data source is pulled and generated into websites like our blogs
 
@@ -59,7 +59,7 @@ The latter `react-notion-x` uses `notion-client` to do get the job done, and foc
 
 Either way, these two packages makes it extremely trivial to both get content from Notion and rendering pages based on that content. I ended up building my blog with `react-notion` with data pulled from a Notion "table" database collection.
 
-![The database collection used to store all my blog posts](/static/images/database-collection-notion.png)
+![The database collection used to store all my blog posts](/static/images/nextjs-blog-notion/database-collection-notion.png)
 
 The database collection used to store all my blog posts
 
@@ -105,7 +105,7 @@ What really makes Next.js standout is that this framework supports all of these 
 
 For our blog then, we can actually leverage "SSG with data", which fetches data at build time and compiles our website statically. (The specific function is called `getStaticProps`.)
 
-![Static site generation with external data (Next.js)](/static/images/nextjs-ssg-external-data.png)
+![Static site generation with external data (Next.js)](/static/images/nextjs-blog-notion/nextjs-ssg-external-data.png)
 
 Static site generation with external data (Next.js)
 
@@ -137,7 +137,7 @@ return {
 
 One of the first things that's missing is pagination that let's you navigate between blog posts.
 
-![Pagination](/static/images/pagination.png)
+![Pagination](/static/images/nextjs-blog-notion/pagination.png)
 
 Pagination
 

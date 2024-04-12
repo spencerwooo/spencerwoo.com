@@ -6,13 +6,13 @@ draft: false
 tags: ['github']
 ---
 
-![Banner](/static/images/wait-this-is-not-my-commit.png)
+![Banner](/static/images/wait-this-is-not-my-commit/wait-this-is-not-my-commit.png)
 
 ## **起因**
 
 这件事情还要从我校为毕业生收拾行李开始讲起。今年六月末北京疫情复发，这一波直接让我们北京高校毕业生无法返校，个人行李物品必须由学校老师代为整理快递回家。这件事情让同级的同学们非常不满，于是微博知乎节奏飞起。当然这件事情是北京统一的行为，其中不光有我校学生自己不满，其他北京的学校听说有些处理的比我校更要糟糕，所以这件事情我们暂且不做评价。但从事情开始，就有「好事」的同学除了在知乎等平台上进行回答评论、表达意见，还直接在 GitHub 上面直接整理记录时间线。
 
-![一个目录，暂时不放具体仓库与地址](/static/images/200830_153718.png)
+![一个目录，暂时不放具体仓库与地址](/static/images/wait-this-is-not-my-commit/200830_153718.png)
 
 一个目录，暂时不放具体仓库与地址
 
@@ -24,17 +24,17 @@ tags: ['github']
 
 我当时：
 
-![/static/images/200830_154650.png](/static/images/200830_154650.png)
+![/static/images/wait-this-is-not-my-commit/200830_154650.png](/static/images/wait-this-is-not-my-commit/200830_154650.png)
 
 好奇心让我点开了同学发给我的链接，向下划到 Contributors，果然，我的头像就在那里。
 
-![/static/images/200830_154938.png](/static/images/200830_154938.png)
+![/static/images/wait-this-is-not-my-commit/200830_154938.png](/static/images/wait-this-is-not-my-commit/200830_154938.png)
 
 淦，老子昨天才知道你这仓库的，宁真厉害
 
 好嘛，除了我的头像，还有个我非常眼熟的头像 —— 下面这位老爷子：
 
-![/static/images/200830_155124.png](/static/images/200830_155124.png)
+![/static/images/wait-this-is-not-my-commit/200830_155124.png](/static/images/wait-this-is-not-my-commit/200830_155124.png)
 
 这人我看着有点眼熟……
 
@@ -44,7 +44,7 @@ tags: ['github']
 
 仔细看了一下贡献者列表，其中不乏开源世界的知名人物，也包括一些我校在 GitHub 上有账号的同学们。好了，这处处透露着诡异的仓库，**看起来除了这位仓库主人自己的 commit 以外，其余所有的 commit 的身份信息都是伪造的。**
 
-![细节修改你个大头鬼啊，这里「我的」commit 周围都被篡改为我身边认识的大佬同学了](/static/images/200830_160029.png)
+![细节修改你个大头鬼啊，这里「我的」commit 周围都被篡改为我身边认识的大佬同学了](/static/images/wait-this-is-not-my-commit/200830_160029.png)
 
 细节修改你个大头鬼啊，这里「我的」commit 周围都被篡改为我身边认识的大佬同学了
 
@@ -60,13 +60,13 @@ tags: ['github']
 
 事实上，Git 本身是具有这样的设计缺陷的。**Git commit 信息的 author 是一个可以零成本造假的字符串。**首先，我们来看看一个 commit 里面包含哪些信息。我们可以用  `git log`（或 Oh My Zsh 的 alias 命令：`glog`  来打印一个更为清楚的 commit 历史）来查看本地 Git 仓库的 commit 记录，并找到一个特定 commit 的 hash，比如我当前仓库的 HEAD commit hash 为  `d3f97ef`。
 
-![Git 仓库的 commit 记录](/static/images/200830_163010.png)
+![Git 仓库的 commit 记录](/static/images/wait-this-is-not-my-commit/200830_163010.png)
 
 Git 仓库的 commit 记录
 
 我使用一个上周的 commit hash `df6eb5f`，我们可以用  `git cat-file -p df6eb5f`  来查看这一 commit 的具体信息：
 
-![Commit hash 为 df6eb5f 的 commit 具体信息](/static/images/200830_163212.png)
+![Commit hash 为 df6eb5f 的 commit 具体信息](/static/images/wait-this-is-not-my-commit/200830_163212.png)
 
 Commit hash 为 df6eb5f 的 commit 具体信息
 
@@ -95,7 +95,7 @@ git push -f
 
 使用一个只有我们自己手中拥有的 GPG 私钥对我们的 commit 进行签名，可以让 GitHub 确认我们本次 commit 是真实且是本人操作的。这样，别有用心的他人就无法以我们的身份创建「被签名」的 commit。在 GitHub 上使用的 GPG 密钥和我们的 SSH 密钥并不一样，后者 SSH key 唯一存在的原因是为了向 GitHub 证明身份，用于向我们拥有权限的仓库中进行 commit，而前者 GPG key 则是为了「证明我拥有本次 commit 的著作权」，也只有用 GPG 私钥签名的 commit 在 GitHub 上才会显示如下图的 Verified 绿色钦定小标标。
 
-![使用 GPG 签名的 commit 会在 GitHub 上显示 Verified 标志](/static/images/200830_165356.png)
+![使用 GPG 签名的 commit 会在 GitHub 上显示 Verified 标志](/static/images/wait-this-is-not-my-commit/200830_165356.png)
 
 使用 GPG 签名的 commit 会在 GitHub 上显示 Verified 标志
 
@@ -196,7 +196,7 @@ Date:   Sun Aug 30 17:16:18 2020 +0800
 $ git cat-file -p c407d4e
 ```
 
-![已经签名过的 commit 包含有我们使用的 PGP signature](/static/images/200830_172152.png)
+![已经签名过的 commit 包含有我们使用的 PGP signature](/static/images/wait-this-is-not-my-commit/200830_172152.png)
 
 已经签名过的 commit 包含有我们使用的 PGP signature
 
