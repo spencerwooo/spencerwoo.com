@@ -13,18 +13,24 @@ const Card = ({
   publishDate,
 }) => (
   <div className="w-full p-4">
-    <div className="overflow-hidden rounded-md border-2 border-gray-200 border-opacity-60 dark:border-gray-700 md:flex">
-      <Link href={href} aria-label={`Link to ${title}`}>
-        <Image
-          alt={title}
-          src={imgSrc}
-          className="h-48 w-full border-r object-cover object-center p-2 md:h-full md:w-56"
-          width={300}
-          height={200}
-        />
-      </Link>
+    <div className="relative flex flex-col border-t border-gray-200 dark:border-gray-700 md:flex-row">
+      <div className="md:tex-3xl absolute right-0 top-4 hidden bg-opacity-50 text-xl font-light text-gray-300 dark:text-gray-700 md:block">
+        {publishDate}
+      </div>
 
-      <div className="p-4 md:w-5/6">
+      <div className="mt-6 flex-shrink-0">
+        <Link href={href} aria-label={`Link to ${title}`}>
+          <Image
+            alt={title}
+            src={imgSrc}
+            className="h-32 w-full rounded-lg border object-cover object-center md:h-48 md:w-48 md:shadow-lg"
+            width={192}
+            height={192}
+          />
+        </Link>
+      </div>
+
+      <div className="mt-6 flex-grow md:ml-8 md:p-4">
         <p
           className="mb-2 inline-block rounded-sm px-1.5 text-sm font-bold text-white shadow-lg"
           style={{ backgroundColor: tagColor }}
