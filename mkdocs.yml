@@ -39,8 +39,8 @@ theme:
         name: Switch to system preference
 
   features:
-    # - navigation.instant
-    # - navigation.instant.progress
+    - navigation.instant
+    - navigation.instant.progress
     - navigation.tracking
     - navigation.tabs
     # - navigation.tabs.sticky
