@@ -13,3 +13,6 @@ Thank you for considering to sponsor me! :heart:
 
 ### Alipay and Wechat Pay
 
+|                Alipay (¥30)                 |                  Wechat Pay (¥30)                   |
+| :-----------------------------------------: | :-------------------------------------------------: |
+| ![alipay](assets/alipay.png){ width=300px } | ![wechat pay](assets/wechat-pay.png){ width=300px } |
