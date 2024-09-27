@@ -55,6 +55,11 @@ theme:
     - content.action.edit
     - content.code.copy
 
+extra:
+  social:
+    - icon: material/rss-box
+      link: /feed.xml
+
 markdown_extensions:
   - attr_list
   - md_in_html
@@ -83,6 +88,13 @@ plugins:
       post_url_format: "{slug}"
   - rss:
       match_path: "blog/posts/.*"
+      feeds_filenames:
+        json_created: feed.json
+        json_updated: feed_updated.json
+        rss_created: feed.xml
+        rss_updated: feed_updated.xml
       date_from_meta:
         as_creation: "date"
-        as_update: "git"
+        as_update: "date_updated"
+      use_git: false
+      abstract_delimiter: <!-- more -->
