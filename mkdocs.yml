@@ -1,0 +1,74 @@
+site_name: Spencer Woo
+site_url: https://spencerwoo.com
+copyright: Copyright &copy; 2020 - Present @ Spencer Woo
+
+nav:
+  - index.md
+  - Blog:
+    - blog/index.md
+  - publications.md
+  - sponsor.md
+
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/logo.png
+
+  font:
+    text: Asap
+
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: black
+      accent: red
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: amber
+      toggle:
+        icon: material/weather-night
+        name: Switch to system preference
+
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.sections
+    - navigation.prune
+    - navigation.footer
+    - navigation.indexes
+    - toc.follow
+    - toc.integrate
+    - search.suggest
+    - content.action.edit
+    - content.code.copy
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search
+  - awesome-pages
+  - blog:
+      post_url_format: "{slug}"
