@@ -1,6 +1,6 @@
 ---
 title: '🔮 Hooking onto Deep Neural Networks: A PyTorch Tutorial'
-date: 2024-04-12
+date: 2024-09-27
 categories:
   - vision
   - research

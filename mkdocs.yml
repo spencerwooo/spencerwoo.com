@@ -43,7 +43,6 @@ theme:
     # - navigation.instant.progress
     - navigation.tracking
     - navigation.tabs
-    # - navigation.tabs.sticky
     - navigation.top
     - navigation.sections
     - navigation.prune
