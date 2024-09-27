@@ -1,5 +1,5 @@
 ---
-title: 🛸 Revisiting blogging with Notion in 2022
+title: Revisiting blogging with Notion in 2022 🛸
 date: 2022-01-08
 categories:
   - notion

@@ -1,5 +1,5 @@
 ---
-title: 🥲 I got tired of open-source
+title: I got tired of open-source 🥲
 date: 2022-05-25
 categories:
   - life

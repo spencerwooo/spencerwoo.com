@@ -85,6 +85,7 @@ plugins:
   - awesome-pages
   - blog:
       post_url_format: "{slug}"
+  - social
   - rss:
       match_path: "blog/posts/.*"
       feeds_filenames:
