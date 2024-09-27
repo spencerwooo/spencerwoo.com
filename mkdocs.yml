@@ -1,4 +1,5 @@
 site_name: Spencer Woo
+site_description: Spencer's personal blog and website
 site_url: https://spencerwoo.com
 copyright: Copyright &copy; 2020 - Present @ Spencer Woo
 
@@ -11,9 +12,9 @@ nav:
 
 theme:
   name: material
+  custom_dir: overrides
   logo: assets/logo.png
   favicon: assets/logo.png
-
   font:
     text: Asap
 
@@ -80,3 +81,8 @@ plugins:
   - awesome-pages
   - blog:
       post_url_format: "{slug}"
+  - rss:
+      match_path: "blog/posts/.*"
+      date_from_meta:
+        as_creation: "date"
+        as_update: "git"
