@@ -16,7 +16,7 @@ theme:
   logo: assets/logo.png
   favicon: assets/logo.png
   font:
-    text: Asap
+    text: Ruda
 
   palette:
     - media: "(prefers-color-scheme)"
