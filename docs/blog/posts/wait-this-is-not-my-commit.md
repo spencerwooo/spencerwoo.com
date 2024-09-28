@@ -28,17 +28,17 @@ slug: wait-this-is-not-my-commit
 
 我当时：
 
-![../images/wait-this-is-not-my-commit/200830_154650.png](../images/wait-this-is-not-my-commit/200830_154650.png)
+![](../images/wait-this-is-not-my-commit/200830_154650.png)
 
 好奇心让我点开了同学发给我的链接，向下划到 Contributors，果然，我的头像就在那里。
 
-![../images/wait-this-is-not-my-commit/200830_154938.png](../images/wait-this-is-not-my-commit/200830_154938.png)
+![](../images/wait-this-is-not-my-commit/200830_154938.png)
 
 淦，老子昨天才知道你这仓库的，宁真厉害
 
 好嘛，除了我的头像，还有个我非常眼熟的头像 —— 下面这位老爷子：
 
-![../images/wait-this-is-not-my-commit/200830_155124.png](../images/wait-this-is-not-my-commit/200830_155124.png)
+![](../images/wait-this-is-not-my-commit/200830_155124.png)
 
 这人我看着有点眼熟……
 
@@ -48,9 +48,10 @@ slug: wait-this-is-not-my-commit
 
 仔细看了一下贡献者列表，其中不乏开源世界的知名人物，也包括一些我校在 GitHub 上有账号的同学们。好了，这处处透露着诡异的仓库，**看起来除了这位仓库主人自己的 commit 以外，其余所有的 commit 的身份信息都是伪造的。**
 
-![细节修改你个大头鬼啊，这里「我的」commit 周围都被篡改为我身边认识的大佬同学了](../images/wait-this-is-not-my-commit/200830_160029.png)
-
-细节修改你个大头鬼啊，这里「我的」commit 周围都被篡改为我身边认识的大佬同学了
+<figure markdown>
+  ![](../images/wait-this-is-not-my-commit/200830_160029.png)
+  <figcaption>细节修改你个大头鬼啊，这里「我的」commit 周围都被篡改为我身边认识的大佬同学了</figcaption>
+</figure>
 
 这件事情昨天确实让我非常震惊：Git 的 commit 记录竟然还可以伪造。我确实之前从来没有在意过这类安全问题，以为签入 Git 记录的内容都有完善的身份验证，**而事实证明我太天真了。**
 
@@ -64,15 +65,17 @@ slug: wait-this-is-not-my-commit
 
 事实上，Git 本身是具有这样的设计缺陷的。**Git commit 信息的 author 是一个可以零成本造假的字符串。**首先，我们来看看一个 commit 里面包含哪些信息。我们可以用  `git log`（或 Oh My Zsh 的 alias 命令：`glog`  来打印一个更为清楚的 commit 历史）来查看本地 Git 仓库的 commit 记录，并找到一个特定 commit 的 hash，比如我当前仓库的 HEAD commit hash 为  `d3f97ef`。
 
-![Git 仓库的 commit 记录](../images/wait-this-is-not-my-commit/200830_163010.png)
-
-Git 仓库的 commit 记录
+<figure markdown>
+  ![Git 仓库的 commit 记录](../images/wait-this-is-not-my-commit/200830_163010.png)
+  <figcaption>Git 仓库的 commit 记录</figcaption>
+</figure>
 
 我使用一个上周的 commit hash `df6eb5f`，我们可以用  `git cat-file -p df6eb5f`  来查看这一 commit 的具体信息：
 
-![Commit hash 为 df6eb5f 的 commit 具体信息](../images/wait-this-is-not-my-commit/200830_163212.png)
-
-Commit hash 为 df6eb5f 的 commit 具体信息
+<figure markdown>
+  ![Commit hash 为 df6eb5f 的 commit 具体信息](../images/wait-this-is-not-my-commit/200830_163212.png)
+  <figcaption>Commit hash 为 df6eb5f 的 commit 具体信息</figcaption>
+</figure>
 
 可以发现，每个 commit 都拥有 commit 的 author 和 commit 的 committer，分别是 commit 的第一作者和执行 commit 具体操作的人。如何确认这两人的具体身份呢？Git 仅记录了 commit author 和 committer 二人的名称、邮箱和时间戳，而其中的名称和邮箱正是我们配置 Git 时设定的  `user.name`  和  `user.email`，而 GitHub 也正是通过这两个内容确定 commit 的具体作者和 GitHub 身份的。
 
@@ -80,7 +83,7 @@ Commit hash 为 df6eb5f 的 commit 具体信息
 
 甚至，我们可以将整个仓库的 Git commit 历史通过  `filer-branch`  批量修改为其他的人：
 
-```
+```shell
 git commit -am "Destroy production"
 git filter-branch --env-filter \
   'if [ "$GIT_AUTHOR_EMAIL" = "iamthe@evilguy.com" ]; then
@@ -99,29 +102,28 @@ git push -f
 
 使用一个只有我们自己手中拥有的 GPG 私钥对我们的 commit 进行签名，可以让 GitHub 确认我们本次 commit 是真实且是本人操作的。这样，别有用心的他人就无法以我们的身份创建「被签名」的 commit。在 GitHub 上使用的 GPG 密钥和我们的 SSH 密钥并不一样，后者 SSH key 唯一存在的原因是为了向 GitHub 证明身份，用于向我们拥有权限的仓库中进行 commit，而前者 GPG key 则是为了「证明我拥有本次 commit 的著作权」，也只有用 GPG 私钥签名的 commit 在 GitHub 上才会显示如下图的 Verified 绿色钦定小标标。
 
-![使用 GPG 签名的 commit 会在 GitHub 上显示 Verified 标志](../images/wait-this-is-not-my-commit/200830_165356.png)
-
-使用 GPG 签名的 commit 会在 GitHub 上显示 Verified 标志
+<figure markdown>
+  ![使用 GPG 签名的 commit 会在 GitHub 上显示 Verified 标志](../images/wait-this-is-not-my-commit/200830_165356.png)
+  <figcaption>使用 GPG 签名的 commit 会在 GitHub 上显示 Verified 标志</figcaption>
+</figure>
 
 ## **使用 GPG key 来证明 commit 著作权**
 
-<aside>
-💙 GitHub 官方文档拥有更为详细的 GPG 密钥构建和添加方法：[Managing commit signature verification](https://docs.github.com/en/github/authenticating-to-github/managing-commit-signature-verification).
-
-</aside>
+!!! note
+    💙 GitHub 官方文档拥有更为详细的 GPG 密钥构建和添加方法：[Managing commit signature verification](https://docs.github.com/en/github/authenticating-to-github/managing-commit-signature-verification).
 
 ### **下载安装 GPG**
 
 首先，我们需要下载安装 GPG 命令行工具，在 Windows 上可以通过  `scoop install gpg`  来安装，大部分 Linux 发行版也应该直接拥有 GPG 工具。
 
-```
+```shell
 # Windows 用户下载安装 GPG
 $ scoop install gpg
 ```
 
 使用  `gpg --version`  查看 GPG 安装情况和版本信息，并记住 GPG 存储根目录：即输出内容中的 Home 目录。
 
-```
+```shell
 # 测试 GPG（Windows 或 Linux）
 $ gpg --version
 
@@ -145,7 +147,7 @@ Compression: Uncompressed, ZIP, ZLIB, BZIP2
 
 之后，我们就可以用下面的命令来为自己生成一个 GPG 公钥和私钥：
 
-```
+```shell
 $ gpg --full-generate-key
 ```
 
@@ -157,7 +159,7 @@ $ gpg --full-generate-key
 
 这样，我们就生成了我们的第一对 GPG 密钥！我们可以用这样的命令查看当前我们拥有的所有 GPG key：
 
-```
+```shell
 $ gpg --list-secret-keys --keyid-format LONG
 
 /home/spencer/.gnupg/pubring.kbx
@@ -174,14 +176,14 @@ ssb   rsa4096/EB754D2B2409E9FE 2020-08-29 [E]
 
 生成了 GPG 密钥，并拿到了我们的 GPG 私钥 ID 后，我们即可让 Git 用这一 GPG key 为我们的 commit 进行签名：
 
-```
+```shell
 $ git config --global user.signingkey 24CD550268849CA0
 $ git config --global commit.gpgsign true
 ```
 
 这样设置后，如果没有问题，之后的 commit 中 Git 就会自动为我们用这一 GPG 私钥进行签名。我们可以用这一命令确认签名的存在：
 
-```
+```shell
 $ git log --show-signature
 
 commit c407d4efc980cbee981da50d714a751999b19ddf (HEAD -> master)
@@ -196,13 +198,14 @@ Date:   Sun Aug 30 17:16:18 2020 +0800
 
 另外，此时我们再次用之前查看 commit 详细信息的命令查看本次 commit，我们会发现 GPG 签名已经直接保存于这一 commit 之中了：
 
-```
+```shell
 $ git cat-file -p c407d4e
 ```
 
-![已经签名过的 commit 包含有我们使用的 PGP signature](../images/wait-this-is-not-my-commit/200830_172152.png)
-
-已经签名过的 commit 包含有我们使用的 PGP signature
+<figure markdown>
+  ![已经签名过的 commit 包含有我们使用的 PGP signature](../images/wait-this-is-not-my-commit/200830_172152.png)
+  <figcaption>已经签名过的 commit 包含有我们使用的 PGP signature</figcaption>
+</figure>
 
 另外，这里如果出现类似的问题，可能是 Git 使用的 GPG 命令行工具跟我们生成密钥使用的不一致。我们可以首先用  `which gpg`  来找到我们所使用的 GPG 工具的具体地址，比如  `/usr/bin/gpg`，之后告诉 Git 使用这一 GPG binary 即可：
 
@@ -210,16 +213,14 @@ $ git cat-file -p c407d4e
 $ git config --global gpg.program /usr/bin/gpg
 ```
 
-<aside>
-🥦 Windows 上的同学，也可以使用 `which` 命令！只需要用 scoop 安装：`scoop install which`，即可方便的用类似 Linux 上的语法找到相应的可执行文件具体路径。
-
-</aside>
+!!! tip
+    🥦 Windows 上的同学，也可以使用 `which` 命令！只需要用 scoop 安装：`scoop install which`，即可方便的用类似 Linux 上的语法找到相应的可执行文件具体路径。
 
 ### **告诉 GitHub 自己的 GPG 公钥**
 
 最后，我们需要告诉 GitHub 我们使用的 GPG 公钥。对于刚刚我们拿到的私钥 ID：`24CD550268849CA0`，我们使用下面的命令即可导出我们的 GPG 公钥：
 
-```
+```shell
 $ gpg --armor --export 24CD550268849CA0
 ```
 
@@ -231,7 +232,7 @@ $ gpg --armor --export 24CD550268849CA0
 
 无论如何，大家都可以用这一命令拉取并导入我（Spencer Woo）的 GPG 公钥签名：
 
-```
+```shell
 $ curl https://keybase.io/spencerwoo/pgp_keys.asc | gpg --import
 ```
 

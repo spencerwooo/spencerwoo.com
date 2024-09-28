@@ -8,12 +8,10 @@ categories:
 slug: nextjs-blog-notion
 ---
 
-<aside>
-🔥 An update in 2022: **[Revisiting blogging with Notion in 2022](https://spencerwoo.com../revisiting-blogging-with-notion-2022).**
+!!! bug "🔥"
+    An update in 2022: **[Revisiting blogging with Notion in 2022](./revisiting-blogging-with-notion-2022.md).**
 
-</aside>
-
-![../images/nextjs-blog-notion/nextjs-blog-notion.png](../images/nextjs-blog-notion/nextjs-blog-notion.png)
+![](../images/nextjs-blog-notion/nextjs-blog-notion.png)
 
 Yup, yup, yup! (Paimon noises 🥁) **My blog, that you are currently reading, is now officially powered by the one and only — Notion!** Not only is my site still _clean, uncluttered, and performative_, but I can now get rid of all the annoying stuff where I have to manually write and push Markdown in VS Code, upload my images to a CDN through some poorly managed script, and rebuild my blog each time I publish new content. Notion has that sweet sweet rich-content management experience, why not use Notion as my blog's CMS?
 
@@ -86,15 +84,11 @@ This database acts as a data source and content provide for my website framework
 
 Pretty standard stuff right? With this data we can easily build a website that renders this list of blog posts and the inner content of each article.
 
-<aside>
-🤖 I failed with using `notion-client` to get a returned list of my database collection. So I ended up pulling the data from Notion's database with Splitbee's API worker, and using `react-notion-x` solely for rendering the article.
+!!! note
+    🤖 I failed with using `notion-client` to get a returned list of my database collection. So I ended up pulling the data from Notion's database with Splitbee's API worker, and using `react-notion-x` solely for rendering the article.
 
-</aside>
-
-<aside>
-🔥 The "x" version has a lot of extra Block rendering support including equations, embedded PDFs, external third party blocks , etc. So be sure to use that one if you are not using a database but a single page instead as the entry point of your blog.
-
-</aside>
+!!! note
+    🔥 The "x" version has a lot of extra Block rendering support including equations, embedded PDFs, external third party blocks , etc. So be sure to use that one if you are not using a database but a single page instead as the entry point of your blog.
 
 ## Why Next.js?
 
@@ -117,7 +111,7 @@ Static site generation with external data (Next.js)
 
 Yes, that is absolutely true, SSG often have to rebuild the site when data from the source is updated. However, with Next.js, we have another mighty weapon at disposal — _[Incremental Static Regeneration](https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration)!_ Our good friend Vercel, with its powerful serverless capabilities, is able to query our source for new data, and incrementally regenerate new content at a given frequency. In our case, Vercel will revalidate our list of blog posts and its contents once per second. All we need to do is return a `revalidate: 1` property in our `getStaticProps` function.
 
-```tsx
+```ts
 return {
   props: {
     posts,
@@ -130,10 +124,8 @@ return {
 }
 ```
 
-<aside>
-🔥 If you add a new blog post, or update one, **it will be available almost immediately,** without having to re-build your app or make a new deployment.
-
-</aside>
+!!! tip
+    🔥 If you add a new blog post, or update one, **it will be available almost immediately,** without having to re-build your app or make a new deployment.
 
 ## Missing stuff
 
@@ -147,7 +139,7 @@ Pagination
 
 The way I implemented it is simply returning an additional property inside `getStaticProps`, namely `pagination`, which identifies the previous and next post for the current post:
 
-```tsx
+```ts
 const pagination: Pagination = {
   prev: postIndex - 1 >= 0 ? posts[postIndex - 1] : null,
   next: postIndex + 1 < posts.length ? posts[postIndex + 1] : null,
@@ -160,7 +152,7 @@ Details here: [spencerwooo/react-notion-blog](https://github.com/spencerwooo/rea
 
 Embedding an additional Disqus comment block is easy, the hard part was to migrate all of my comments from my previous blog (which was rendered by Gridsome BTW). Luckily I had a specific `slug` field in my Notion database which allows me to control the actual page URL of each one of my specific blog posts.
 
-```tsx
+```html
 <DiscussionEmbed shortname="spencerwoo" config={{ identifier: formatSlug(post.date, post.slug) }} />
 ```
 
@@ -184,7 +176,7 @@ Instead, I discovered another API from Next.js that allows you to manually set t
 
 Yup, yup, yup! That `res` is exactly what we are looking for. Using this, we can manually set our response content type to be XML, and also writing our actual feed XML as response. We can also return an empty React component to bypass Next.js's limitations. Our final feed.tsx basically looks like this:
 
-```tsx
+```ts
 const Feed: FC = () => null
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {

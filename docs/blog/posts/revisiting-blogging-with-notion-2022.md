@@ -76,14 +76,12 @@ You can probably notice that I enjoy embedding bookmarks of links inside an arti
 
 Yes, only a link. The open graph descriptions of the link are all missing. We would need to parse the link ourselves. The library I used is `[unfurl.js](https://www.npmjs.com/package/unfurl.js)`, and I implemented this as a serverless function under `/api/bookmark/[url].ts`, so that we can query the preview of the link on the client side.
 
-<aside>
-🪀 ... as making the request on the client side directly would run into CORS issues.
-
-</aside>
+!!! tip "Why? 🪀"
+    ... as making the request on the client side directly would run into CORS issues.
 
 We would then leverage `[useSWR](https://github.com/vercel/swr)` for requesting the serverless API. Below is a simplified version of the component used for rendering bookmarks:
 
-```tsx
+```ts
 const { url } = value
 const encoded = encodeURIComponent(url)
 const fetcher = url => fetch(`/api/bookmark/${encoded}`).then(res => res.json())
@@ -108,7 +106,7 @@ Yes, rendering native Notion-served images can be tricky, could you believe that
 
 The page of each article is rendered through `getStaticProps`, or `getServerSideProps` (a bit on this later for why I couldn't use static rendering). So, after fetching all blocks from the Notion API, I then proceeded to probe the size of each individual image present in the returned block list, and add their width and height to the block list that is eventually used as the page's props.
 
-```tsx
+```ts
 await Promise.all(
   blocksWithChildren
     .filter((b: any) => b.type === 'image')
@@ -125,7 +123,7 @@ await Promise.all(
 
 The library used for probing the image dimensions is `[probe-image-size](https://www.npmjs.com/package/probe-image-size)`, and function `probeImageSize()` is implemented as:
 
-```tsx
+```ts
 const probeImageSize = async (url: string) => {
   const dim = await probe(url)
   return { width: dim.width, height: dim.height }
@@ -134,16 +132,14 @@ const probeImageSize = async (url: string) => {
 
 With this, we would have both the image's URL, and its dimensions when constructing the image rendering component.
 
-```jsx
+```html
 <Image src={imageSrc} alt={imageCaption} width={width} height={height} />
 ```
 
 However, I was initially using this method, until I received an email from Vercel, telling me that I have gone over my limits for `next/image`-based image optimisations. **As it turns out, Notion returns an image url that is short-lived, and for each new url returned by Notion, Next.js optimises them every time.**
 
-<aside>
-🍋 On the bright side, I still have the dimensions of the images I used, which means I can provide them with width and height so that the page doesn't shift its contents while the images are loading. A slight bonus. (●ˇ∀ˇ●)
-
-</aside>
+!!! note
+    🍋 On the bright side, I still have the dimensions of the images I used, which means I can provide them with width and height so that the page doesn't shift its contents while the images are loading. A slight bonus. (●ˇ∀ˇ●)
 
 This marks a dead end for my optimised image rendering. And as I don't have control over the static generation trigger of my blog, I could only resort to using `getServerSideProps` which renders the page by pulling data from the server side on each request, so that I could keep my images fresh - not stale.
 
@@ -160,7 +156,7 @@ I was literally quite excited for a bit. The search integration was also straigh
 
 The search function I wrote was something like:
 
-```tsx
+```ts
 export const searchDatabase = async (query: string) => {
   const response = await notion.search({
     query: query,
@@ -175,10 +171,8 @@ I then tinkered with some debounced search inputs with custom React hooks, and w
 
 Search using Notion official API
 
-<aside>
-🤖 Still, some caveats. The search is only performed on the database titles - meaning that only keywords existing in the blog titles are indexed. This is nowhere near the capabilities of the built-in search of Notion. Still waiting for the official API to mature.
-
-</aside>
+!!! note
+    🤖 Still, some caveats. The search is only performed on the database titles - meaning that only keywords existing in the blog titles are indexed. This is nowhere near the capabilities of the built-in search of Notion. Still waiting for the official API to mature.
 
 ## The end
 
