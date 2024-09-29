@@ -16,7 +16,7 @@ theme:
   logo: assets/logo.png
   favicon: assets/logo.png
   font:
-    text: Ruda
+    text: Inter
 
   palette:
     - media: "(prefers-color-scheme)"
@@ -85,7 +85,7 @@ plugins:
   - awesome-pages
   - blog:
       post_url_format: "{slug}"
-  - social
+  # - social
   - rss:
       match_path: "blog/posts/.*"
       feeds_filenames:

@@ -1,13 +1,28 @@
 ---
-title: '🔮 Hooking onto Deep Neural Networks: A PyTorch Tutorial'
-date: 2024-09-27
+title: 'Hooks in PyTorch'
+date: 2024-09-29
 categories:
   - vision
   - research
 draft: true
-summary: Hooks.
-slug: hooking-onto-torch-models
 ---
+
+To quote myself in a most recently yet-to-be-published paper:
+
+> 💪 The ability of deep neural networks (DNNs) come from extracting and interpreting features from the data provided.
+
+<!-- more -->
+
+What we call, *deep features*, are the abstract, latent, and complex representations that are naturally derived from the training data fed into the DNN. They reflect a consistent activation or response of a layer/node within the model hierarchy to an input.
+
+<figure markdown>
+  ![](../images/hooks-in-pytorch/feature-maps.png)
+  <figcaption>The features from within a pretrained VGG-11 (top) and ResNet-18 (bottom) on layers of different depths visualized.</figcaption>
+</figure>
+
+Generic and semantic deep representations that DNNs learn through training on even simple image-level labels (supervised learning for classification), **allow them to build both global understandings and localizable features of images** that empower downstream tasks including object detection, similarity measurement, among others.
+
+Using *__hooks__*, we will be able to extract these internal data from within DNNs, **with the benefit of NOT having to tamper with model source code or even deconstructing the model itself.** They are one of the best ways for us to probe into model interals without having to tear the model apart.
 
 ## The Basics
 
@@ -21,9 +36,8 @@ Take the infamous VGG-11 model for example:
 >>> print(model)
 ```
 
-<!-- more -->
 
-```txt
+```
 VGG(
   (features): Sequential(
     (0): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
