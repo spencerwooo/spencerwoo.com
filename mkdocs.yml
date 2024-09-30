@@ -55,6 +55,9 @@ theme:
     - content.code.copy
 
 extra:
+  analytics:
+    provider: google
+    property: G-1L6PZQPYZ9
   social:
     - icon: material/rss-box
       link: /feed.xml
