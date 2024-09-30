@@ -16,7 +16,7 @@ theme:
   logo: assets/logo.png
   favicon: assets/logo.png
   font:
-    text: Inter
+    text: Asap
 
   palette:
     - media: "(prefers-color-scheme)"
