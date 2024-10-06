@@ -1,3 +1,17 @@
+/* @font-face {
+  font-family: "Inter";
+  src: url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,20,300..700;1,20,300..700&display=fallback");
+}
+
+:root {
+  --md-text-font: "Inter";
+}
+
+body {
+  font-feature-settings: "cv05", "cv08", "cv10", "ss01", "ss08";
+  font-variation-settings: "opsz" 20;
+} */
+
 .md-grid {
   max-width: 48rem;
 }

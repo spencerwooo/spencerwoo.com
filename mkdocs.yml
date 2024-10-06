@@ -17,7 +17,6 @@ theme:
   favicon: assets/logo.png
   font:
     text: Asap
-
   palette:
     - media: "(prefers-color-scheme)"
       toggle:
