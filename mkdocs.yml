@@ -15,8 +15,8 @@ theme:
   custom_dir: overrides
   logo: assets/logo.png
   favicon: assets/logo.png
-  font:
-    text: Asap
+  # font:
+  #   text: Inter
   palette:
     - media: "(prefers-color-scheme)"
       toggle:

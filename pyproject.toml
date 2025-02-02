@@ -5,7 +5,7 @@ description = "Spencer Woo's Site"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "mkdocs-awesome-pages-plugin>=2.9.3",
-    "mkdocs-material[imaging]>=9.5.37",
-    "mkdocs-rss-plugin>=1.15.0",
+    "mkdocs-awesome-pages-plugin>=2.10",
+    "mkdocs-material[imaging]>=9.6",
+    "mkdocs-rss-plugin>=1.17",
 ]
