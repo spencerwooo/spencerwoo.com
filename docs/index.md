@@ -5,7 +5,7 @@ hide:
   - footer
 ---
 
-<h2 markdown>Hey :wave:</h2>
+<h2 markdown>Hi-ya :wave:</h2>
 
 I'm **Spencer Woo**.
 
