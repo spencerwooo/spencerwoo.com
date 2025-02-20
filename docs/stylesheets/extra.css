@@ -17,9 +17,9 @@ body {
 }
 
 .pub-img {
-  width: 180px;
+  width: 160px;
   border-radius: 0.25rem;
-  margin-top: 0.8em !important;
+/*   margin-top: 0.8em !important; */
   -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
     0 2px 10px 0 rgba(0, 0, 0, 0.12);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
