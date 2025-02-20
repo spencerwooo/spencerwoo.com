@@ -7,7 +7,7 @@ content:
     type: collection
     path: 'docs/blog/posts'
     view:
-      fields: [ title, date, categories, slug ]
+      fields: [ title, date, categories, slug, draft ]
     fields:
       - name: title
         label: Title
@@ -26,7 +26,6 @@ content:
         options:
           values: [ github, life, notion, open-source, research, vision ]
         required: false
-
       - name: slug
         label: Slug
         type: string
@@ -34,3 +33,7 @@ content:
       - name: body
         label: Body
         type: rich-text
+      - name: draft
+        label: Draft
+        type: boolean
+        default: true
