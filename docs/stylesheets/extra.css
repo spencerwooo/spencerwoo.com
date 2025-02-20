@@ -1,25 +1,11 @@
-/* @font-face {
-  font-family: "Inter";
-  src: url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,20,300..700;1,20,300..700&display=fallback");
-}
-
-:root {
-  --md-text-font: "Inter";
-}
-
-body {
-  font-feature-settings: "cv05", "cv08", "cv10", "ss01", "ss08";
-  font-variation-settings: "opsz" 20;
-} */
-
 .md-grid {
   max-width: 48rem;
 }
 
 .pub-img {
-  width: 160px;
+  width: 6.4rem;
   border-radius: 0.25rem;
-/*   margin-top: 0.8em !important; */
+  margin-top: 0.4em !important;
   -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
     0 2px 10px 0 rgba(0, 0, 0, 0.12);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
