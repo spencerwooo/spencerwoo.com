@@ -37,3 +37,4 @@ content:
         label: Draft
         type: boolean
         default: true
+        required: false
