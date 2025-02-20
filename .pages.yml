@@ -38,3 +38,11 @@ content:
         type: boolean
         default: true
         required: false
+  - name: publications
+    label: Publications
+    type: file
+    path: 'docs/publications.md'
+  - name: sponsor
+    label: Sponsor
+    type: file
+    path: 'docs/sponsor.md'
