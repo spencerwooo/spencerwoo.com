@@ -1,31 +1,27 @@
 ---
-title: 'Hooks in PyTorch 🪝'
+title: Hooks in PyTorch 🪝
 date: 2024-09-30
 categories:
   - vision
   - research
 slug: hooks-in-pytorch
+draft: false
 ---
-
 To quote myself in a most recently yet-to-be-published paper:
 
 > 💪 The ability of deep neural networks (DNNs) come from extracting and interpreting features from the data provided.
 
-What we call, *deep features*, are the abstract, latent representations that are naturally derived from the training data fed into the DNN. They reflect a consistent activation or response of a layer/node within the model hierarchy to an input.
+What we call, _deep features_, are the abstract, latent representations that are naturally derived from the training data fed into the DNN. They reflect a consistent activation or response of a layer/node within the model hierarchy to an input.
 
-<figure markdown>
-  ![](../images/hooks-in-pytorch/feature-maps.png)
-  <figcaption>The features from within a pretrained VGG-11 (top) and ResNet-18 (bottom) on layers of different depths visualized.</figcaption>
-</figure>
+!\[\](../images/hooks-in-pytorch/feature-maps.png)
 
-<!-- more -->
+The features from within a pretrained VGG-11 (top) and ResNet-18 (bottom) on layers of different depths visualized.
 
 Generic and semantic deep representations that DNNs learn through training on even simple image-level labels (supervised learning for classification), **allow them to build both global understandings and localizable features of images** that empower downstream tasks including object detection, similarity measurement, among others. Most often, these features are what we are after.
 
-Using *__hooks__*, we will be able to extract these internal data from within DNNs, **with the benefit of NOT having to tamper with model source code or even deconstructing the model itself.** They are one of the best ways for us to probe into model internals without having to tear the model apart.
+Using _**hooks**_, we will be able to extract these internal data from within DNNs, **with the benefit of NOT having to tamper with model source code or even deconstructing the model itself.** They are one of the best ways for us to probe into model internals without having to tear the model apart.
 
-!!! info "The `torch-featurelayer` library"
-    I have recently made [`torch-featurelayer`](https://github.com/spencerwooo/torch-featurelayer) - *🧠 Useful utility functions and wrappers for hooking onto layers within PyTorch models for feature extraction* - available to `pip` download and install. If you are in a hurry, go take a look at how this library is implemented.
+!!! info "The `torch-featurelayer` library" I have recently made [`torch-featurelayer`](https://github.com/spencerwooo/torch-featurelayer) - _🧠 Useful utility functions and wrappers for hooking onto layers within PyTorch models for feature extraction_ - available to `pip` download and install. If you are in a hurry, go take a look at how this library is implemented.
 
 ## What a DNN looks like internally
 
@@ -64,18 +60,17 @@ VGG(
 
 On the outmost layer, the model is composed of three modules: `features`, `avgpool`, and `classifier`. Inside of which, are layers, including `Conv2d`, `ReLU`, and `MaxPool2d`, etc., stacked sequentially.
 
-When an image of shape $[B, C, W, H]$ (i.e., batch, channel, width, and height: $[1, 3, 224, 224]$) is fed into the VGG-11 model:
+When an image of shape $\[B, C, W, H\]$ (i.e., batch, channel, width, and height: $\[1, 3, 224, 224\]$) is fed into the VGG-11 model:
 
-- Layer `features` is the convolutional backbone, extracting features from the image.
-- After feature extraction, layer `avgpool` averages the features spatially.
-- Finally, layer `classifier` classifies the image into one of the 1000 classes.
+*   Layer `features` is the convolutional backbone, extracting features from the image.
+*   After feature extraction, layer `avgpool` averages the features spatially.
+*   Finally, layer `classifier` classifies the image into one of the 1000 classes.
 
-## How to *hook* onto features?
+## How to _hook_ onto features?
 
 The features extracted by the `features` module in VGG-11 is often what we are most interested in.
 
-!!! tip "Do all DNNs have a `features` module?"
-    **Definitely no.** For VGG models, we have `features`. Whereas for ResNet models, we have `layers1`, `layers2`, ..., and for ViTs, we have `blocks.1`, `blocks.2`, ..., and so on. Different models have different internal names for their layers.
+!!! tip "Do all DNNs have a `features` module?" **Definitely no.** For VGG models, we have `features`. Whereas for ResNet models, we have `layers1`, `layers2`, ..., and for ViTs, we have `blocks.1`, `blocks.2`, ..., and so on. Different models have different internal names for their layers.
 
 Different models are constructed with different modules and components as layers, where each layer is responsible for extracting some part of the feature dimensions. In PyTorch, the model hierarchy is a Python object, where to reference, say, the 5th layer inside the `features` module, you would:
 
@@ -86,9 +81,9 @@ MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
 
 This is where **hooks** are going to come into the picture.
 
-To get the output of said layer when an image is fed, or forwarded, into the model, we would be using the **PyTorch hook**. More specifically, the `register_forward_hook()`, to enable the hook trigger *after* the data flows through this specific layer.
+To get the output of said layer when an image is fed, or forwarded, into the model, we would be using the **PyTorch hook**. More specifically, the `register_forward_hook()`, to enable the hook trigger _after_ the data flows through this specific layer.
 
-We first define our *hook*, which is essentially a callback function.
+We first define our _hook_, which is essentially a callback function.
 
 ```python
 # a globally accessible placeholder for capturing the output of the layer
@@ -106,13 +101,11 @@ The hook is registered by applying `register_forward_hook()` on the specific lay
 h = model.features[5].register_forward_hook(hook)
 ```
 
-!!! info "The available PyTorch hooks"
-    - `register_forward_hook` - To register a hook to be called after the `forward()` call has computed an output.
-    - `register_forward_pre_hook` - To register a hook to be called before the `forward()` call.
-    - `register_full_backward_hook` - To register a backward hook to be called when the **gradients** with respect to a module are computed.
-    - `register_full_backward_pre_hook` - To register a backward hook to be called before ... you get the idea.
+!!! info "The available PyTorch hooks" - `register_forward_hook` - To register a hook to be called after the `forward()` call has computed an output. - `register_forward_pre_hook` - To register a hook to be called before the `forward()` call. - `register_full_backward_hook` - To register a backward hook to be called when the **gradients** with respect to a module are computed. - `register_full_backward_pre_hook` - To register a backward hook to be called before ... you get the idea.
 
-    Take a look at the docs for [`torch.nn.modules.module`](https://pytorch.org/docs/stable/_modules/torch/nn/modules/module.html) for details. 
+```
+Take a look at the docs for [`torch.nn.modules.module`](https://pytorch.org/docs/stable/_modules/torch/nn/modules/module.html) for details. 
+```
 
 A handle `h` is returned so we can remove the hook for releasing resource later on.
 
@@ -211,16 +204,15 @@ feat_outs, output = hooked_model(image)  # the layer outputs are returned in a l
 
 What is so special about the model's internal layer output?
 
-The output, `feat_out`, as we have hooked and extracted from the VGG-11 model, is a tensor of shape $[1, 128, 56, 56]$. **The data it holds represent the deep features that VGG-11 was able to learn during supervised training.**
+The output, `feat_out`, as we have hooked and extracted from the VGG-11 model, is a tensor of shape $\[1, 128, 56, 56\]$. **The data it holds represent the deep features that VGG-11 was able to learn during supervised training.**
 
 The image that we were using all along is this.
 
-<figure markdown>
-  ![](../images/hooks-in-pytorch/imagenet-image.png){ width=250 }
-  <figcaption>An image from the ImageNet dataset.</figcaption>
-</figure>
+!\[\](../images/hooks-in-pytorch/imagenet-image.png){ width=250 }
 
-To visualize `feat_out`, the $[1, 128, 56, 56]$ shaped tensor, specifically, the channel dimension $128$, should first be flattened into an *image-like* shape. **We apply `mean()` over the channel dimension, and omit the batch dimension.**
+An image from the ImageNet dataset.
+
+To visualize `feat_out`, the $\[1, 128, 56, 56\]$ shaped tensor, specifically, the channel dimension $128$, should first be flattened into an _image-like_ shape. **We apply `mean()` over the channel dimension, and omit the batch dimension.**
 
 ```python
 fmap = feat_out.mean(dim=1).squeeze()  # flatten to image-like shape
@@ -246,17 +238,16 @@ plt.tight_layout(pad=0)
 plt.show()
 ```
 
-<figure markdown>
-  ![](../images/hooks-in-pytorch/vgg11-feature-map.png){ width=250 }
-  <figcaption>Visualization of the internal layer output of VGG-11.</figcaption>
-</figure>
+!\[\](../images/hooks-in-pytorch/vgg11-feature-map.png){ width=250 }
 
-We are now able to visualize what features exactly was learnt by VGG-11 at the `features` module on layer 5. This is often what we call the *feature maps* of ConvNets.
+Visualization of the internal layer output of VGG-11.
+
+We are now able to visualize what features exactly was learnt by VGG-11 at the `features` module on layer 5. This is often what we call the _feature maps_ of ConvNets.
 
 ## Moving forward
 
 The VGG architecture that we have been using in this example, is especially good at extracting high fidelity, semantically meaningful deep features from images, which is one of the most widely used model architectures at representing images at the latent dimensions. It has been successfully used for image similarity assessment, super resolution, and style transfer (think GANs).
 
-As the basis of vision tasks, different models with supervised training for image classification tasks learn various features, hidden within their internal layers. These features, again, are the essential building blocks leveraged for more complex, in-depth downstream tasks.  
+As the basis of vision tasks, different models with supervised training for image classification tasks learn various features, hidden within their internal layers. These features, again, are the essential building blocks leveraged for more complex, in-depth downstream tasks.
 
-By leveraging *hooks* in PyTorch, we are able to extract features at various levels of internal layers, without having to take the entire model apart. We would still be able to use existing pretrained model weights, while enjoying the benefits of a cleaner codebase. 
+By leveraging _hooks_ in PyTorch, we are able to extract features at various levels of internal layers, without having to take the entire model apart. We would still be able to use existing pretrained model weights, while enjoying the benefits of a cleaner codebase.
