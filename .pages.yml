@@ -19,10 +19,14 @@ content:
         required: true
       - name: categories
         label: Categories
-        type: select
+        type: string
+        list:
+          min: 1
+          max: 4
         options:
           values: [ github, life, notion, open-source, research, vision ]
-        required: true
+        required: false
+
       - name: slug
         label: Slug
         type: string
