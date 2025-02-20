@@ -2,6 +2,10 @@ media:
   input: docs/blog/images
   output: /blog/images
 content:
+  - name: home
+    label: Home
+    type: file
+    path: 'docs/index.md'
   - name: posts
     label: Posts
     type: collection
