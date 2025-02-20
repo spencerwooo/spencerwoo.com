@@ -1,14 +1,14 @@
-site_name: Spencer Woo
-site_description: Spencer's personal blog and website
+site_name: spencer woo
+site_description: spencer's personal blog and website
 site_url: https://spencerwoo.com
-copyright: Copyright &copy; 2020 - Present @ Spencer Woo
+copyright: copyright &copy; 2020 - present @ spencer woo
 
 nav:
-  - index.md
-  - Blog:
+  - home: index.md
+  - blog:
       - blog/index.md
-  - publications.md
-  - sponsor.md
+  - publications: publications.md
+  - sponsor: sponsor.md
 
 theme:
   name: material
