@@ -7,7 +7,7 @@ hide:
 
 <h2 markdown>hi-ya :wave:</h2>
 
-i'm **Spencer Woo**.
+i'm **spencer woo**.
 
 i hack deep learning models.
 
