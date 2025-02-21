@@ -13,30 +13,26 @@ hide:
 
 #### [Towards transferable adversarial attacks with centralized perturbation](https://doi.org/10.1609/aaai.v38i6.28427) :material-asterisk:
 
-- **Shangbo Wu***, Yu-an Tan, Yajie Wang, Ruinan Ma, Wencong Ma, Yuanzhang Li^
+**^^Shangbo Wu^^**^*^, Yu-an Tan, Yajie Wang, Ruinan Ma, Wencong Ma, Yuanzhang Li^†^
 
-<em>A transferable adversarial attack via dynamic, fine-grained centralization of perturbation on dominating frequency coefficients.</em>
+*:material-book-variant: Proceedings of the AAAI Conference on Artificial Intelligence, March 2024*
 
-<sup>:material-book-variant: Proceedings of the AAAI Conference on Artificial
-Intelligence, March 2024</sup>
+[![google scholar](https://img.shields.io/badge/scholar-4285F4?logo=googlescholar&labelColor=beige)](https://scholar.google.com/citations?view_op=view_citation&citation_for_view=Mf-JoyQAAAAJ:Y0pCki6q_DkC)
+[![arXiv](https://img.shields.io/badge/2312.06199-b31b1b?logo=arxiv&labelColor=2d3339)](https://arxiv.org/abs/2312.06199)
+[![dblp](https://img.shields.io/badge/dblp-AAAI%202024-fbba00?logo=dblp&labelColor=004f9f)](https://dblp.org/rec/conf/aaai/Wu0WMML24.html)
+[![semantic scholar citations](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F7e59fdd13e3e9c8387d2a124adf47c05a6aeda8c%3Ffields%3DcitationCount&query=%24.citationCount&style=social&logo=semanticscholar&label=citations&cacheSeconds=7200)](https://www.semanticscholar.org/paper/Towards-Transferable-Adversarial-Attacks-with-Wu-Tan/7e59fdd13e3e9c8387d2a124adf47c05a6aeda8c)
 
-![feature space attack](assets/feature-space-attack.png){ .pub-img align=left }
-
-#### [Toward feature space adversarial attack in the frequency domain](https://doi.org/10.1002/int.23031)
-
-- Yajie Wang\*, Yu-an Tan, Haoran Lyu, **Shangbo Wu***, Yuhang Zhao, Yuanzhang Li^
-
-<em>Attacking in the feature space via spectral transformation.</em>
-
-<sup>:material-book-variant: International Journal of Intelligent Systems, Aug
-2022</sup>
+---
 
 ![demiguise attack](assets/demiguise-attack.png){ .pub-img align=left }
 
 #### [Demiguise attack: Crafting invisible semantic adversarial perturbations with perceptual similarity](https://doi.org/10.24963/ijcai.2021/430) :material-asterisk:
 
-- Yajie Wang\*, **Shangbo Wu***, Wenyi Jiang, Shengang Hao, Yu-an Tan, Quanxin Zhang^
+Yajie Wang^*^, **^^Shangbo Wu^^**^*^, Wenyi Jiang, Shengang Hao, Yu-an Tan, Quanxin Zhang^†^
 
-<em>Leveraging perceptual similarity to craft adversarial perturbation that is invisible to humans.</em>
+*:material-book-variant: International Joint Conference on Artificial Intelligence, July 2021*
 
-<sup>:material-book-variant: International Joint Conference on Artificial Intelligence, July 2021</sup>
+[![google scholar](https://img.shields.io/badge/scholar-4285F4?logo=googlescholar&labelColor=beige)](https://scholar.google.com/citations?view_op=view_citation&citation_for_view=Mf-JoyQAAAAJ:d1gkVwhDpl0C)
+[![arXiv](https://img.shields.io/badge/2107.01396-b31b1b?logo=arxiv&labelColor=2d3339)](https://arxiv.org/abs/2107.01396)
+[![dblp](https://img.shields.io/badge/dblp-IJCAI%202021-fbba00?logo=dblp&labelColor=004f9f)](https://dblp.org/rec/conf/ijcai/WangWJHTZ21.html)
+[![semantic scholar citations](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F0f092b5d24125a1d187128d8b4ba091a061433c6%3Ffields%3DcitationCount&query=%24.citationCount&style=social&logo=semanticscholar&label=citations&cacheSeconds=7200)](https://www.semanticscholar.org/paper/Demiguise-Attack%3A-Crafting-Invisible-Semantic-with-Wang-Wu/0f092b5d24125a1d187128d8b4ba091a061433c6)

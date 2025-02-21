@@ -1,11 +1,32 @@
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: hsl(240, 12%, 14%);
+}
+
+.md-header,
+.md-tabs {
+  color: inherit !important;
+  background-color: var(--md-default-bg-color);
+}
+
+[data-md-color-scheme="slate"] .md-header,
+[data-md-color-scheme="slate"] .md-tabs {
+  background-color: var(--md-default-bg-color);
+}
+
+@media screen and (min-width: 76.25em) {
+  [data-md-color-scheme="slate"] .md-tabs {
+    border-bottom: 0.05rem solid rgba(255, 255, 255, 0.07);
+  }
+}
+
 .md-grid {
   max-width: 48rem;
 }
 
 .pub-img {
-  width: 6.4rem;
+  width: 6.9rem;
   border-radius: 0.25rem;
-  margin-top: 0.4em !important;
+  margin-top: 0.2em !important;
   -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
     0 2px 10px 0 rgba(0, 0, 0, 0.12);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);

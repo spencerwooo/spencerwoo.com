@@ -24,7 +24,7 @@ theme:
         name: Switch to light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: black
+      primary: white
       accent: red
       toggle:
         icon: material/weather-sunny
@@ -65,6 +65,9 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - admonition
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.emoji:
