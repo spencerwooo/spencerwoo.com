@@ -19,10 +19,8 @@ hide:
 
 [![google scholar](https://img.shields.io/badge/scholar-4285F4?logo=googlescholar&labelColor=beige)](https://scholar.google.com/citations?view_op=view_citation&citation_for_view=Mf-JoyQAAAAJ:Y0pCki6q_DkC)
 [![arXiv](https://img.shields.io/badge/2312.06199-b31b1b?logo=arxiv&labelColor=2d3339)](https://arxiv.org/abs/2312.06199)
-[![dblp](https://img.shields.io/badge/dblp-AAAI%202024-fbba00?logo=dblp&labelColor=004f9f)](https://dblp.org/rec/conf/aaai/Wu0WMML24.html)
+[![dblp](https://img.shields.io/badge/dblp-aaai%202024-fbba00?logo=dblp&labelColor=004f9f)](https://dblp.org/rec/conf/aaai/Wu0WMML24.html)
 [![semantic scholar citations](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F7e59fdd13e3e9c8387d2a124adf47c05a6aeda8c%3Ffields%3DcitationCount&query=%24.citationCount&style=social&logo=semanticscholar&label=citations&cacheSeconds=7200)](https://www.semanticscholar.org/paper/Towards-Transferable-Adversarial-Attacks-with-Wu-Tan/7e59fdd13e3e9c8387d2a124adf47c05a6aeda8c)
-
----
 
 ![demiguise attack](assets/demiguise-attack.png){ .pub-img align=left }
 
@@ -34,5 +32,23 @@ Yajie Wang^*^, **^^Shangbo Wu^^**^*^, Wenyi Jiang, Shengang Hao, Yu-an Tan, Quan
 
 [![google scholar](https://img.shields.io/badge/scholar-4285F4?logo=googlescholar&labelColor=beige)](https://scholar.google.com/citations?view_op=view_citation&citation_for_view=Mf-JoyQAAAAJ:d1gkVwhDpl0C)
 [![arXiv](https://img.shields.io/badge/2107.01396-b31b1b?logo=arxiv&labelColor=2d3339)](https://arxiv.org/abs/2107.01396)
-[![dblp](https://img.shields.io/badge/dblp-IJCAI%202021-fbba00?logo=dblp&labelColor=004f9f)](https://dblp.org/rec/conf/ijcai/WangWJHTZ21.html)
+[![dblp](https://img.shields.io/badge/dblp-ijcai%202021-fbba00?logo=dblp&labelColor=004f9f)](https://dblp.org/rec/conf/ijcai/WangWJHTZ21.html)
 [![semantic scholar citations](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F0f092b5d24125a1d187128d8b4ba091a061433c6%3Ffields%3DcitationCount&query=%24.citationCount&style=social&logo=semanticscholar&label=citations&cacheSeconds=7200)](https://www.semanticscholar.org/paper/Demiguise-Attack%3A-Crafting-Invisible-Semantic-with-Wang-Wu/0f092b5d24125a1d187128d8b4ba091a061433c6)
+
+<sub markdown>N.B.: ^*^ equal contribution, ^†^ corresponding author.</sub>
+
+---
+
+## news
+
+<div markdown style="line-height: 1;">
+
+**dec 17, 2024**: accepted invitation to be a reviewer for [ICML 2025](https://icml.cc/Conferences/2025).
+
+**nov 21, 2024**: accepted invitation to be a reviewer for [CVPR 2025](https://cvpr.thecvf.com/Conferences/2025).
+
+**may 23, 2024**: accepted invitation to be a reviewer for [NeurIPS 2024](https://nips.cc/Conferences/2024).
+
+**dec 9, 2023**: our paper *"Towards transferable adversarial attacks with centralized perturbation"* was accepted by [AAAI 2024](https://ojs.aaai.org/index.php/AAAI/index).
+
+</div>
