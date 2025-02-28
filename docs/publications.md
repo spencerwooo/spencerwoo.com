@@ -36,19 +36,3 @@ Yajie Wang^*^, **^^Shangbo Wu^^**^*^, Wenyi Jiang, Shengang Hao, Yu-an Tan, Quan
 [![semantic scholar citations](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fapi.semanticscholar.org%2Fgraph%2Fv1%2Fpaper%2F0f092b5d24125a1d187128d8b4ba091a061433c6%3Ffields%3DcitationCount&query=%24.citationCount&style=social&logo=semanticscholar&label=citations&cacheSeconds=7200)](https://www.semanticscholar.org/paper/Demiguise-Attack%3A-Crafting-Invisible-Semantic-with-Wang-Wu/0f092b5d24125a1d187128d8b4ba091a061433c6)
 
 <sub markdown>N.B.: ^*^ equal contribution, ^†^ corresponding author.</sub>
-
----
-
-## news
-
-<div markdown style="line-height: 1;">
-
-**dec 17, 2024**: accepted invitation to be a reviewer for [ICML 2025](https://icml.cc/Conferences/2025).
-
-**nov 21, 2024**: accepted invitation to be a reviewer for [CVPR 2025](https://cvpr.thecvf.com/Conferences/2025).
-
-**may 23, 2024**: accepted invitation to be a reviewer for [NeurIPS 2024](https://nips.cc/Conferences/2024).
-
-**dec 9, 2023**: our paper *"Towards transferable adversarial attacks with centralized perturbation"* was accepted by [AAAI 2024](https://ojs.aaai.org/index.php/AAAI/index).
-
-</div>
