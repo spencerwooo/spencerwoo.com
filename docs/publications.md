@@ -5,7 +5,7 @@ hide:
   - navigation
 ---
 
-> a selected list of my publications. [:simple-googlescholar: google scholar](https://scholar.google.com/citations?user=Mf-JoyQAAAAJ) | [:simple-orcid: orcid](https://orcid.org/0000-0002-0737-7420)
+> A selected list of my publications. [:simple-googlescholar: google scholar](https://scholar.google.com/citations?user=Mf-JoyQAAAAJ) | [:simple-orcid: orcid](https://orcid.org/0000-0002-0737-7420)
 
 ---
 

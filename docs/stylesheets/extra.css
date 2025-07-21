@@ -1,3 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;700&display=swap");
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4 {
+  font-family: "Playfair Display", "Times New Roman", Times, serif;
+}
+
 [data-md-color-scheme="slate"] {
   --md-default-bg-color: hsl(240, 12%, 14%);
 }

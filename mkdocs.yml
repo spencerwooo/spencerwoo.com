@@ -1,22 +1,22 @@
-site_name: spencer woo
-site_description: spencer's personal blog and website
+site_name: Spencer Woo
+site_description: Spencer's personal blog and website
 site_url: https://spencerwoo.com
-copyright: copyright &copy; 2020 - present @ spencer woo
+copyright: Copyright &copy; 2020 - Present @ Spencer Woo
 
 nav:
-  - home: index.md
-  - blog:
+  - Home: index.md
+  - Blog:
       - blog/index.md
-  - publications: publications.md
-  - sponsor: sponsor.md
+  - Publications: publications.md
+  - Sponsor: sponsor.md
 
 theme:
   name: material
   custom_dir: overrides
   logo: assets/logo.png
   favicon: assets/logo.png
-  font:
-    text: Overpass
+  # font:
+  #   text: Playfair Display
   palette:
     - media: "(prefers-color-scheme)"
       toggle:

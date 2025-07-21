@@ -5,7 +5,7 @@ hide:
   - footer
 ---
 
-thank you for considering to sponsor me! :heart:
+Thank you for considering to sponsor me! :heart:
 
 ### 爱发电
 
