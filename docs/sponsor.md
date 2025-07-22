@@ -11,7 +11,7 @@ Thank you for considering to sponsor me! :heart:
 
 [爱发电 · 连接创作者与粉丝的会员制平台](https://afdian.com/a/spencerwoo)
 
-### alipay and wechat pay
+### Alipay and WeChat Pay
 
 |        :simple-alipay: alipay (¥30)         |          :simple-wechat: wechat pay (¥30)           |
 | :-----------------------------------------: | :-------------------------------------------------: |

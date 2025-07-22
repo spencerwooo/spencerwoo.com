@@ -39,7 +39,7 @@ _:material-book-variant: To appear in the International Conference on Computer V
 
 **^^Shangbo Wu^^**^\*^, Yu-an Tan, Yajie Wang, Ruinan Ma, Wencong Ma, Yuanzhang Li^†^
 
-_:material-book-variant: Proceedings of the AAAI Conference on Artificial Intelligence, AAAI, March 2024_
+> _Proceedings of the AAAI Conference on Artificial Intelligence, AAAI, March 2024_
 
 [![google scholar](https://img.shields.io/badge/Google%20Scholar-4285F4?logo=googlescholar&labelColor=beige)](https://scholar.google.com/citations?view_op=view_citation&citation_for_view=Mf-JoyQAAAAJ:Y0pCki6q_DkC)
 [![arXiv](https://img.shields.io/badge/2312.06199-b31b1b?logo=arxiv&labelColor=2d3339)](https://arxiv.org/abs/2312.06199)
