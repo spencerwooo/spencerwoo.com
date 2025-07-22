@@ -25,21 +25,21 @@ theme:
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: custom
-      accent: orange
+      accent: pink
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: black
-      accent: amber
+      accent: red
       toggle:
         icon: material/weather-night
         name: Switch to system preference
 
   features:
-    # - navigation.instant
-    # - navigation.instant.progress
+    - navigation.instant
+    - navigation.instant.progress
     - navigation.tracking
     - navigation.tabs
     - navigation.top

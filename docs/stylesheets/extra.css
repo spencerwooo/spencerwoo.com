@@ -62,6 +62,7 @@
 ----------------------------------*/
 [data-md-color-scheme="slate"] {
   --md-default-bg-color: hsl(240, 12%, 14%);
+  --md-typeset-a-color: hsl(211, 87%, 57%) !important;
 }
 
 .md-header,
@@ -104,7 +105,7 @@
 }
 
 .pub-img {
-  width: 6.4rem;
+  width: 7.2rem;
   height: auto;
   border-radius: 0.25rem;
   -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),

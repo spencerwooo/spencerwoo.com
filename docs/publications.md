@@ -17,9 +17,9 @@ hide:
 
 #### [Boosting Generative Adversarial Transferability with Self-supervised Vision Transformer Features](https://arxiv.org/abs/2506.21046)
 
-**^^Shangbo Wu^^**^\*^, Yu-an Tan, Ruinan Ma, Wencong Ma, Dehua Zhu, Yuanzhang Li^†^
+**^^Shangbo Wu^^**, Yu-an Tan, Ruinan Ma, Wencong Ma, Dehua Zhu, Yuanzhang Li^†^
 
-_:material-book-variant: To appear in the International Conference on Computer Vision, ICCV, 2025_
+> _(To appear in the) International Conference on Computer Vision, ICCV, 2025_
 
 [![google scholar](https://img.shields.io/badge/Google%20Scholar-4285F4?logo=googlescholar&labelColor=beige)](https://scholar.google.com/#)
 [![arXiv](https://img.shields.io/badge/2506.21046-b31b1b?logo=arxiv&labelColor=2d3339)](https://arxiv.org/abs/2506.21046)
@@ -37,7 +37,7 @@ _:material-book-variant: To appear in the International Conference on Computer V
 
 #### [Towards transferable adversarial attacks with centralized perturbation](https://doi.org/10.1609/aaai.v38i6.28427)
 
-**^^Shangbo Wu^^**^\*^, Yu-an Tan, Yajie Wang, Ruinan Ma, Wencong Ma, Yuanzhang Li^†^
+**^^Shangbo Wu^^**, Yu-an Tan, Yajie Wang, Ruinan Ma, Wencong Ma, Yuanzhang Li^†^
 
 > _Proceedings of the AAAI Conference on Artificial Intelligence, AAAI, March 2024_
 
@@ -58,7 +58,7 @@ _:material-book-variant: To appear in the International Conference on Computer V
 
 Yajie Wang\*, **^^Shangbo Wu^^\***, Wenyi Jiang, Shengang Hao, Yu-an Tan, Quanxin Zhang^†^
 
-_:material-book-variant: International Joint Conference on Artificial Intelligence, IJCAI, July 2021_
+> _International Joint Conference on Artificial Intelligence, IJCAI, July 2021_
 
 [![google scholar](https://img.shields.io/badge/Google%20Scholar-4285F4?logo=googlescholar&labelColor=beige)](https://scholar.google.com/citations?view_op=view_citation&citation_for_view=Mf-JoyQAAAAJ:d1gkVwhDpl0C)
 [![arXiv](https://img.shields.io/badge/2107.01396-b31b1b?logo=arxiv&labelColor=2d3339)](https://arxiv.org/abs/2107.01396)
