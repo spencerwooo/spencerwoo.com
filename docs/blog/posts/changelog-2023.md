@@ -1,6 +1,8 @@
 ---
 title: Spencer's Changelog for 2022 🥫
-date: 2023-01-08
+date:
+  created: 2023-01-08
+  updated: 2023-01-08
 categories:
   - life
 draft: false

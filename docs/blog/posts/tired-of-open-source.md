@@ -1,6 +1,8 @@
 ---
 title: I got tired of open-source 🥲
-date: 2022-05-25
+date:
+  created: 2022-05-25
+  updated: 2022-05-25
 categories:
   - life
   - open-source

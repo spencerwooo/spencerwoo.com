@@ -1,6 +1,8 @@
 ---
 title: 震惊！竟然有人在 GitHub 上冒充我的身份！ 👨‍💻
-date: 2020-08-30
+date:
+  created: 2020-08-30
+  updated: 2020-08-30
 summary: 所以 GPG Key 是必备，不要心存侥幸啦！快让 GitHub 给你的 commit 标上 verified 小勾勾。
 draft: false
 categories:

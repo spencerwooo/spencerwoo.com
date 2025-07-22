@@ -1,6 +1,8 @@
 ---
 title: Last day of quarantine 💊
-date: 2021-04-11
+date:
+  created: 2021-04-11
+  updated: 2021-04-11
 summary: 今天（2021.4.11）是 international travel 隔离的最后一天啦，我免费啦！
 draft: false
 categories:

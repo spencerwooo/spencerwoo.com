@@ -1,6 +1,8 @@
 ---
 title: Powering my blog with Notion 🎇
-date: 2021-02-25
+date:
+  created: 2021-02-25
+  updated: 2021-02-25
 summary: Notion + Next.js = Blog
 draft: false
 categories:

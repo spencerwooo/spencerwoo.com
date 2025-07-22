@@ -1,6 +1,8 @@
 ---
 title: Recap 2020 ⚽
-date: 2021-01-01
+date:
+  created: 2021-01-01
+  updated: 2021-01-01
 summary: 新年快乐。
 draft: false
 categories:

@@ -1,6 +1,8 @@
 ---
 title: Revisiting blogging with Notion in 2022 🛸
-date: 2022-01-08
+date:
+  created: 2022-01-08
+  updated: 2022-01-08
 categories:
   - notion
 draft: false

@@ -1,6 +1,8 @@
 ---
 title: 'Hooks in PyTorch 🪝'
-date: 2024-09-30
+date:
+  created: 2024-09-30
+  updated: 2024-09-30
 categories:
   - vision
   - research
