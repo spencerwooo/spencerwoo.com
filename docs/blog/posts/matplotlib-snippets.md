@@ -31,38 +31,82 @@ plt.rcParams['axes.grid'] = True
 plt.rcParams['axes.linewidth'] = 1.5
 ```
 
-## Nicer emphasis of bar plots
+These give the plotted figure a clean outline with essential ticks on the axes.
+
+## Nicer bar plots
+
+The default scheme in `seaborn` (on the left) is already quite nice, but with the following tweaks, we can make it even prettier.
+
+![bar-plot](../images/matplotlib-snippets/bar-plot.png)
+
+We will be using this color palette.
 
 ```python
-data = {}  # Some data here
-fig, ax = plt.subplots(figsize=(12, 9))
-sns.barplot(data=data, x='x', y='y', hue='hue', palette='muted', ax=ax)
+palette = ["#4E79A7", "#F28E2B", "#E15759", "#59A14F", "#76B7B2", "#EDC949"]
 ```
 
-Add black edges to bars:
+![palette](../images/matplotlib-snippets/palette.png)
 
 ```python
-for _, bar in enumerate(ax.patches):
-    bar.set_edgecolor('black')
-    bar.set_linewidth(1)
+import pandas as pd
+
+# Mock some data here in a pandas DataFrame
+data = pd.DataFrame(
+    {
+        "Fruit": ["Apple", "Banana", "Cherry"] * 4,
+        "Quantity": [10, 15, 7, 12, 18, 5, 8, 11, 6, 11, 17, 4],
+        "Storage": ["Fresh", "Dried", "Frozen", "Canned"] * 3,
+    }
+)
+fig, ax = plt.subplots(figsize=(8, 8))
 ```
 
-or, set edge color to solid colors:
+We plot the bar plot with `seaborn` on the axes we just created. We apply a subtle transparency to the colors of the bars.
 
 ```python
-for _, bar in enumerate(ax.patches):
+sns.barplot(
+    data=data,
+    x="Fruit",
+    y="Quantity",
+    hue="Storage",
+    palette=palette,
+    alpha=0.6,  # i've always found some transparency in bar plots to be helpful
+    ax=ax,
+)
+```
+
+Now, we are going to iterate over the bar patches within the plot, and:
+
+- Set the edge color to a solid color with a thicker stroke.
+- Add some breathing space between the bars.
+
+```python
+gap = 0.2  # adjust this value to change the gap between bars
+
+for _, bar in enumerate(ax.patches):  # may need to change this axis
+    # Set edge color and linewidth
     clr = bar.get_facecolor()
-    bar.set_edgecolor(clr)
+    bar.set_edgecolor((*clr[:3], 1))  # opaque borders
     bar.set_linewidth(1.5)
+
+    # Adjust the width and position of the bars
+    width = bar.get_width()
+    bar.set_width(width * (1 - gap))
+    bar.set_x(bar.get_x() + (width - width * (1 - gap)) / 2)
 ```
 
-Hatches:
+We will also add hatches to the bars for better visual distinction.
 
 ```python
-hatches = ['/', '-', '.']  # customize this list as preferred
+# Customize this list as preferred, options include:
+# ['/', '-', '.', '/', '-', '.', '/', '-', '.', '/', '-', '.']
+hatches = ['/', '-', '.']
+
 for i, bar in enumerate(ax.patches):
     bar.set_hatch(hatches[i % len(hatches)])
 ```
+
+> For more hatch pattern options and examples, see [Matplotlib Hatch Style Reference](https://matplotlib.org/stable/gallery/shapes_and_collections/hatch_style_reference.html).
 
 ## Line plots with markers
 
