@@ -61,9 +61,9 @@ data = pd.DataFrame(
 fig, ax = plt.subplots(figsize=(8, 8))
 ```
 
-We plot the bar plot with `seaborn` on the axes we just created. We apply a subtle transparency to the colors of the bars.
+We plot the bar plot with `seaborn` on the axes we just created. We apply **a subtle transparency** to the colors of the bars.
 
-```python
+```python hl_lines="7"
 sns.barplot(
     data=data,
     x="Fruit",
