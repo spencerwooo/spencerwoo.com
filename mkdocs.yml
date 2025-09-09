@@ -88,6 +88,7 @@ extra_css:
 plugins:
   - search
   - awesome-pages
+  - glightbox
   - blog:
       post_url_format: "{slug}"
   # - social

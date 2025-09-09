@@ -1,14 +1,13 @@
 ---
 title: "Helpful matplotlib snippets 📈"
 date:
-  created: 2025-07-22
-  updated: 2025-07-22
+  created: 2025-09-09
+  updated: 2025-09-09
 categories:
   - vision
   - research
   - open-source
 slug: matplotlib-snippets
-draft: true
 ---
 
 `matplotlib` -- the de-facto library of plotting in Python.
@@ -37,7 +36,10 @@ These give the plotted figure a clean outline with essential ticks on the axes.
 
 The default scheme in `seaborn` (on the left) is already quite nice, but with the following tweaks, we can make it even prettier.
 
-![bar-plot](../images/matplotlib-snippets/bar-plot.png)
+<figure markdown="span">
+    ![bar plot](../images/matplotlib-snippets/bar-plot.png){ width="900px" }
+    <figcaption>Left: default seaborn scheme. Right: our tweaks.</figcaption>
+</figure>
 
 We will be using this color palette.
 
@@ -58,12 +60,13 @@ data = pd.DataFrame(
         "Storage": ["Fresh", "Dried", "Frozen", "Canned"] * 3,
     }
 )
-fig, ax = plt.subplots(figsize=(8, 8))
 ```
 
-We plot the bar plot with `seaborn` on the axes we just created. We apply **a subtle transparency** to the colors of the bars.
+We plot the bar plot with `seaborn` on the axes we create with `matplotlib`. We apply **a subtle transparency** to the colors of the bars.
 
-```python hl_lines="7"
+```python hl_lines="9"
+fig, ax = plt.subplots(figsize=(8, 8))
+
 sns.barplot(
     data=data,
     x="Fruit",
@@ -74,6 +77,11 @@ sns.barplot(
     ax=ax,
 )
 ```
+
+<figure markdown="span">
+    ![bar plot w/ transparency](../images/matplotlib-snippets/bar-plot-w-transparency.png){ width="450px" }
+    <figcaption>Plot with transparency added.</figcaption>
+</figure>
 
 Now, we are going to iterate over the bar patches within the plot, and:
 
@@ -95,7 +103,12 @@ for _, bar in enumerate(ax.patches):  # may need to change this axis
     bar.set_x(bar.get_x() + (width - width * (1 - gap)) / 2)
 ```
 
-We will also add hatches to the bars for better visual distinction.
+<figure markdown="span">
+    ![bar plot w/ edges](../images/matplotlib-snippets/bar-plot-w-edges.png){ width="450px" }
+    <figcaption>Plot with edges and gaps added.</figcaption>
+</figure>
+
+Finally, we will also add hatches to the bars for better visual distinction.
 
 ```python
 # Customize this list as preferred, options include:
@@ -106,26 +119,20 @@ for i, bar in enumerate(ax.patches):
     bar.set_hatch(hatches[i % len(hatches)])
 ```
 
+<figure markdown="span">
+    ![bar plot w/ hatches](../images/matplotlib-snippets/bar-plot-w-hatches.png){ width="450px" }
+    <figcaption>Plot with hatches added.</figcaption>
+</figure>
+
 > For more hatch pattern options and examples, see [Matplotlib Hatch Style Reference](https://matplotlib.org/stable/gallery/shapes_and_collections/hatch_style_reference.html).
-
-## Line plots with markers
-
-```python
-data = {}  # Some more data here
-fig, ax = plt.subplots(figsize=(12, 9))
-sns.lineplot(
-    data=data,
-    x='x',
-    y='y',
-    marker='o',
-    markersize=8,
-    linewidth=1.5,
-    ax=ax,
-)
-```
 
 ## Saving figures
 
+My only tip for saving figures is to apply `.tight_layout()` to the plot, and use `bbox_inches='tight'` to ensure that the saved figure does not have unnecessary whitespace around it.
+
 ```python
+fig.tight_layout()  # or plt.tight_layout()
 plt.savefig('figure.png', dpi=300, bbox_inches='tight')
 ```
+
+> May be continued ...
