@@ -60,6 +60,8 @@ mkdocs-awesome-pages-plugin==2.10.1
     # via spencerwoo-com (pyproject.toml)
 mkdocs-get-deps==0.2.0
     # via mkdocs
+mkdocs-glightbox==0.5.1
+    # via spencerwoo-com (pyproject.toml)
 mkdocs-material==9.6.1
     # via spencerwoo-com (pyproject.toml)
 mkdocs-material-extensions==1.3.1
@@ -105,6 +107,8 @@ requests==2.32.3
     #   cachecontrol
     #   mkdocs-material
     #   mkdocs-rss-plugin
+selectolax==0.3.29
+    # via mkdocs-glightbox
 six==1.16.0
     # via python-dateutil
 smmap==5.0.1
