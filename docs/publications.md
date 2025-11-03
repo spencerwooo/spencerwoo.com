@@ -19,7 +19,7 @@ hide:
 
 **^^Shangbo Wu^^**, Yu-an Tan, Ruinan Ma, Wencong Ma, Dehua Zhu, Yuanzhang Li^†^
 
-> _(To appear in the) International Conference on Computer Vision, ICCV, 2025_
+> _Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), ICCV, 2025_
 
 [![google scholar](https://img.shields.io/badge/Google%20Scholar-4285F4?logo=googlescholar&labelColor=beige)](https://scholar.google.com/#)
 [![arXiv](https://img.shields.io/badge/2506.21046-b31b1b?logo=arxiv&labelColor=2d3339)](https://arxiv.org/abs/2506.21046)
