@@ -1,4 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Arsenal+SC:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+/*---------------------------------
+  Customize Inter (Body Text)
+  cv11: Single-story 'a' (Geometric feel)
+  ss01: Alternate digits
+----------------------------------*/
+:root {
+  --md-text-font-family: "Inter", sans-serif;
+}
+
+body, .md-typeset {
+  font-feature-settings: "cv11", "ss01";
+}
 
 /*---------------------------------
   Extra styles for the title fonts
@@ -6,7 +19,8 @@
 .md-typeset h1,
 .md-typeset h2,
 .md-typeset h3 {
-  font-family: "Arsenal SC", Arial, Helvetica, sans-serif;
+  font-family: "Playfair Display", serif;
+  /* font-variation-settings: "SOFT" 100, "WONK" 1; */
 }
 
 /*---------------------------------
@@ -59,10 +73,15 @@
 
 /*---------------------------------
   Better dark theme (slate) support
+  Neutral dark theme (no blue tint)
 ----------------------------------*/
 [data-md-color-scheme="slate"] {
-  --md-default-bg-color: hsl(240, 12%, 14%);
-  --md-typeset-a-color: hsl(211, 87%, 57%) !important;
+  --md-default-bg-color: #121212;
+  --md-default-fg-color: #e0e0e0;
+  --md-default-fg-color--light: #adadad;
+  --md-default-fg-color--lighter: #707070;
+  --md-default-fg-color--lightest: #303030;
+  --md-typeset-a-color: #40a9ff; /* Keep a blue accent for links if desired, or make it neutral too */
 }
 
 .md-header,
