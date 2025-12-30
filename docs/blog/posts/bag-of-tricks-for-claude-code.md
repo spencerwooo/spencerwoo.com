@@ -1,7 +1,7 @@
 ---
 title: "Bag of Tricks for Claude Code：克劳德之踩坑记录"
 date:
-  created: 2025-12-29
+  created: 2025-12-30
   updated: 2025-12-30
 categories:
   - llm
