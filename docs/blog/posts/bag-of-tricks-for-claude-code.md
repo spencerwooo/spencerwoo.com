@@ -1,13 +1,12 @@
 ---
-title: "Bag of Tricks for Claude Code. 克劳德之踩坑记录"
+title: "Bag of Tricks for Claude Code：克劳德之踩坑记录"
 date:
   created: 2025-12-29
   updated: 2025-12-30
 categories:
-  - open-source
+  - llm
   - research
 slug: bag-of-tricks-for-claude-code
-draft: true
 ---
 
 年终这篇就用贯穿 2025 年的 Agentic Coding 工具收尾了 —— Claude Code 🦀
@@ -16,7 +15,7 @@ draft: true
 
 Claude Code 是 Anthropic 官方推出的命令行 AI 编程助手。在上下文理解涌现出重要价值的今天，Claude Code 让 AI 自主的进行编程实现逐渐成为可能。
 
-不过，Anthropic 自己对 🇨🇳 千方百计的阻挠已经是人尽皆知的情况了。在国内的互联网环境下，使用起来还真需要点功夫配置。本文将我这几天的实践经验总结，在配置第三方 API、切换其他 LLM 模型、设置代理和状态栏等方面的策略 dump 如下，希望有参考意义。
+不过，Anthropic 对 🇨🇳 地区的访问限制已是人尽皆知。在国内的互联网环境下，使用起来确实需要一些功夫来配置。本文总结了我这几天的实践经验，将配置第三方 API、切换其他 LLM 模型、设置代理和状态栏等方面的策略 dump 如下，希望对读者有所帮助。
 
 <!-- more -->
 
@@ -27,7 +26,7 @@ Claude Code 是 Anthropic 官方推出的命令行 AI 编程助手。在上下�
 1. 自定义配置文件在 `~/.claude/settings.json`，一般情况，我们修改该文件；
 2. Claude Code 运行时持久化配置在 `~/.claude.json`。
 
-目前我只遇到一次修改后者的情况，即：当我们 Claude Code 注册初始化之后，修改 `~/.claude/settings.json` 再打开 Claude Code 时，让其知道我已经完成 onboarding，不要再次进入登录流程的情况。
+目前我只遇到一次需要修改后者的情况，即：当我们完成 Claude Code 注册初始化后，如果修改了 `~/.claude/settings.json`，需要让 Claude Code 知道我们已经完成 onboarding，不要再进入登录流程。
 
 若存在此情况，需要在 `~/.claude.json` 中修改：
 
@@ -75,17 +74,17 @@ Claude Code 原生登录方式只支持官方的 Claude 订阅（如 Claude Pro/
 }
 ```
 
-如果我们需要在多个兼容服务之间频繁切换（比如在 Kimi、GLM、MiniMax 之间切换），手动编辑配置文件会很麻烦。推荐使用 [cc-switch](https://github.com/farion1231/cc-switch) 这个 GUI 工具，其本质上是帮我们管理 `settings.json` 中的环境变量，提供图形界面让我们保存多套配置（API 地址 + 密钥），点击即可切换不同的配置。
+如果需要在多个兼容服务之间频繁切换（比如在 Kimi、GLM、MiniMax 之间切换），手动编辑配置文件会比较麻烦。推荐使用 [cc-switch](https://github.com/farion1231/cc-switch) 这个 GUI 工具，其本质上是在帮我们管理 `settings.json` 中的环境变量，提供图形界面来保存多套配置（API 地址 + 密钥），点击即可切换。
 
 ![Claude Code with cc-switch](../images/bag-of-tricks-for-claude-code/claude-code-cc-switch.png)
 
-因此，cc-switch 只适用于原生兼容 Claude API 格式的服务。它只负责切换环境变量，不涉及 API 格式转换。如果我们的所有 API 都是兼容 Claude 格式的，那么只用 cc-switch 就够了。
+因此，cc-switch 只适用于原生兼容 Claude API 格式的服务。它只负责切换环境变量，不涉及 API 格式转换。如果我们使用的所有 API 都兼容 Claude 格式，那么只用 cc-switch 就足够了。
 
 ## 当 API 不兼容 Claude 格式时（情况二）
 
 如果我们想使用的 API 服务格式与 Claude API 不兼容（比如自定义的模型服务、OpenAI 格式的 API、其他厂商的 API 等），就需要进行格式转换。这种情况下配置稍微复杂一些，需要两步操作。
 
-首先，使用像 claude-code-router 这样的中转服务在本地启动一个 proxy。这个 proxy 的作用是接收 Claude Code 发来的标准 Claude API 请求，将请求转换为目标 API 的格式，调用真实的 API 服务，然后将响应转换回 Claude API 格式返回给 Claude Code。
+首先，使用像 claude-code-router 这样的中转服务在本地启动一个 proxy。这个 proxy 的作用是接收 Claude Code 发来的标准 Claude API 请求，将请求转换为目标 API 的格式，调用真实的 API 服务，然后将响应转换回 Claude API 格式并返回给 Claude Code。
 
 接下来，同样需要修改环境变量，但这次 `ANTHROPIC_BASE_URL` 要指向本地的 router 地址（而不是直接指向第三方 API）：
 
@@ -98,7 +97,7 @@ Claude Code 原生登录方式只支持官方的 Claude 订阅（如 Claude Pro/
 }
 ```
 
-因此，在这一场景下，我们完整的请求链路是这样的：
+在这一场景下，完整的请求链路如下：
 
 - Claude Code 发出请求 →
 - 本地 Router (`http://localhost:port`) 接收并转换格式 →
@@ -107,7 +106,7 @@ Claude Code 原生登录方式只支持官方的 Claude 订阅（如 Claude Pro/
 - Claude Code 接收响应。
 
 !!! tip "我们让 Claude Code 总结两种情况的本质区别："
-情况一（兼容 Claude 格式）：
+    情况一（兼容 Claude 格式）：
 
     - 环境变量直接指向第三方 API 地址
     - 使用 cc-switch 快速切换多个兼容 API
@@ -121,21 +120,21 @@ Claude Code 原生登录方式只支持官方的 Claude 订阅（如 Claude Pro/
 
     共同点：两种情况都需要修改环境变量，区别在于环境变量指向的目标不同（直接指向 API vs 指向本地 router）。因此，我们可以继续使用 cc-switch 管理环境变量配置，将本地 router 增加成为一个 Claude Code API 提供商。
 
-## Bonus! 用 Antigravity 获取充足的 Claude 配额
+## Bonus：用 Antigravity 获取充足的 Claude 配额
 
-如果我们是 Gemini 付费会员（[Google AI Pro/Ultra](https://gemini.google/subscriptions/)），[Antigravity](https://antigravity.google/) 提供了非常充足的 Claude 模型用量。这是一个相当划算的选择。
+如果是 Gemini 付费会员（[Google AI Pro/Ultra](https://gemini.google/subscriptions/)），[Antigravity](https://antigravity.google/) 提供了非常充足的 Claude 模型用量。
 
-推荐使用 [Antigravity Tools](https://github.com/lbjlaq/Antigravity-Manager) 这个 GUI 桌面应用来管理 Antigravity 配置。它是一个跨平台的桌面应用（支持 macOS、Windows、Linux），提供了多账户管理、实时配额监控、智能账户推荐等功能，并能将 Web Session 转换为标准 API 接口。
+推荐使用 [Antigravity Tools](https://github.com/lbjlaq/Antigravity-Manager) 这个 GUI 桌面应用来管理 Antigravity 配置。它是跨平台桌面应用（支持 macOS、Windows、Linux），提供了多账户管理、实时配额监控、智能账户推荐等功能，并能将 Web Session 转换为标准 API 接口。
 
 ![Antigravity Tools](../images/bag-of-tricks-for-claude-code/antigravity-manager.png)
 
-Antigravity Tools 也可以算作一个 router，符合上面介绍的「情况 2」。因此，配置完成后，将 `ANTHROPIC_BASE_URL` 指向 Antigravity 的 API 地址即可。
+Antigravity Tools 也可以算作一个 router，符合上面介绍的「情况 2」。配置完成后，将 `ANTHROPIC_BASE_URL` 指向 Antigravity 的 API 地址即可。
 
 ## 优化 settings.json 配置
 
-除了基本的 API 配置外，`settings.json` 还支持一些有用的配置项。
+除了基本的 API 配置外，`settings.json` 还支持一些实用的配置项。
 
-首先，我们可以通过设置环境变量来禁用一些非必要的网络请求和模型调用，提升响应速度，降低 API 使用量：
+首先，我们可以通过设置环境变量来禁用非必要的网络请求和模型调用，从而提升响应速度、降低 API 使用量：
 
 ```json
 {
@@ -146,7 +145,7 @@ Antigravity Tools 也可以算作一个 router，符合上面介绍的「情况 
 }
 ```
 
-默认情况下，Claude Code 会在 git commit 消息中添加 `Co-authored-by: Claude` 标记。如果我们不喜欢这个行为，可以通过设置 `includeCoAuthoredBy` 为 `false` 来关闭：
+默认情况下，Claude Code 会在 git commit 消息中添加 `Co-authored-by: Claude` 标记。如果不希望添加此标记，可以通过设置 `includeCoAuthoredBy` 为 `false` 来关闭：
 
 ```json
 {
@@ -154,7 +153,7 @@ Antigravity Tools 也可以算作一个 router，符合上面介绍的「情况 
 }
 ```
 
-另一个实用的配置是权限策略。通过 `permissions` 配置，我们可以预先批准某些操作（`allow`），避免每次都需要确认，或者禁止某些操作（`deny`），防止意外执行危险命令。如：
+另一个实用的配置是权限策略。通过 `permissions` 配置，我们可以预先批准某些操作（`allow`），避免每次都需要确认；也可以禁止某些操作（`deny`），防止意外执行危险命令。例如：
 
 ```json
 {
@@ -177,17 +176,17 @@ Antigravity Tools 也可以算作一个 router，符合上面介绍的「情况 
 }
 ```
 
-这个配置允许 Claude Code 自动进行网络搜索、文件读取和安全的 git 操作查询，但禁止它直接执行 git commit、push 等可能修改仓库的命令，以及删除操作，这些都需要我们手动确认后执行。
+这个配置允许 Claude Code 自动进行网络搜索、文件读取和安全的 git 查询操作，但禁止它直接执行 git commit、push 等可能修改仓库的命令，以及删除操作，这些都应需要手动确认。
 
 ## 配置 Claude Code 状态栏
 
-Claude Code 支持在 TUI 界面底部显示自定义状态栏，可以展示当前的 git 分支、时间、token 使用情况等信息。推荐使用 [cc-statusline](https://github.com/chongdashu/cc-statusline) 项目提供的状态栏脚本。
+Claude Code 支持在 TUI 界面底部显示自定义状态栏，展示当前的 git 分支、时间、token 使用情况等信息。推荐使用 [cc-statusline](https://github.com/chongdashu/cc-statusline) 提供的状态栏脚本。
 
 配置过程很简单。运行以下命令安装：
 
 ```bash
 npx @chongdashu/cc-statusline@latest init
-# 或者使用 bunx
+# 或使用 bunx
 bunx @chongdashu/cc-statusline@latest init
 ```
 
@@ -207,7 +206,7 @@ bunx @chongdashu/cc-statusline@latest init
 
 ![claude-code-statusline](../images/bag-of-tricks-for-claude-code/claude-code-statusline.png)
 
-## 我们让 Claude Code 总结一下 👏
+## 小结
 
 通过合理配置 Claude Code，我们可以：
 
@@ -231,3 +230,5 @@ We leave them as honorable mentions.
 - [claude-code-router](https://github.com/musistudio/claude-code-router) - API 格式转换 proxy 工具
 - [Antigravity Tools](https://github.com/lbjlaq/Antigravity-Manager) - Antigravity GUI 桌面管理应用
 - [cc-statusline](https://github.com/chongdashu/cc-statusline) - Claude Code 状态栏脚本
+
+> **致谢**：本文的撰写离不开 Claude Code 对我杂乱思绪的规范整理，离不开 Gemini、GLM 对学术化用语的文风润色，也离不开 Nano Banana Pro 对题图绘制的大力支持。
