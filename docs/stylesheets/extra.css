@@ -21,11 +21,11 @@
   Every pixel matters. Every curve intentional.
 ----------------------------------*/
 :root {
-  --md-text-font-family: "Inter", sans-serif;
+  --md-text-font-family: "Inter", Helvetica, Arial, 'Hiragino Sans GB', 'Microsoft Yahei', '黑体', sans-serif;
 }
 
 body, .md-typeset {
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", Helvetica, Arial, 'Hiragino Sans GB', 'Microsoft Yahei', '黑体', sans-serif;
   font-feature-settings:
     "cv08" 1,  /* Serif I */
     "cv11" 1,  /* Single-story a */
