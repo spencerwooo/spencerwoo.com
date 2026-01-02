@@ -1,16 +1,48 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url("https://rsms.me/inter/inter.css");
 
 /*---------------------------------
-  Customize Inter (Body Text)
-  cv11: Single-story 'a' (Geometric feel)
-  ss01: Alternate digits
+  Inter — The Steve Jobs Variant
+
+  Obsessively crafted with these features:
+  - cv08: Upper-case i with serif (classic, refined)
+  - cv11: Single-story 'a' (geometric clarity)
+  - cv02: Open Four (mathematical precision)
+  - cv03: Open Six and Nine (consistent curves)
+  - cv04: Open Three (balanced form)
+  - cv05: Lower l with tail (distinguishable from I)
+  - cv10: Capital G with spur (elegant detail)
+  - ss01: Alternate digits (rounded, friendly)
+  - ss02: Disambiguation (clear letterforms)
+  - calt: Contextual alternates (smart typography)
+  - kern: Kerning (perfect spacing)
+  - liga: Ligatures (fi, fl beauty)
+
+  Every pixel matters. Every curve intentional.
 ----------------------------------*/
 :root {
   --md-text-font-family: "Inter", sans-serif;
 }
 
 body, .md-typeset {
-  font-feature-settings: "cv11", "ss01";
+  font-family: "Inter", sans-serif;
+  font-feature-settings:
+    "cv08" 1,  /* Serif I */
+    "cv11" 1,  /* Single-story a */
+    "cv02" 1,  /* Open 4 */
+    "cv03" 1,  /* Open 6 & 9 */
+    "cv04" 1,  /* Open 3 */
+    "cv05" 1,  /* l with tail */
+    "cv10" 1,  /* G with spur */
+    "ss01" 1,  /* Rounded digits */
+    "ss02" 1,  /* Disambiguation */
+    "calt" 1,  /* Contextual alternates */
+    "kern" 1,  /* Kerning */
+    "liga" 1;  /* Ligatures */
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /*---------------------------------
