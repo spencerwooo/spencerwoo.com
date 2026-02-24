@@ -21,7 +21,7 @@ hide:
 
 > _Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), ICCV, 2025_
 
-[![google scholar](https://img.shields.io/badge/Google%20Scholar-4285F4?logo=googlescholar&labelColor=beige)](https://scholar.google.com/#)
+[![google scholar](https://img.shields.io/badge/Google%20Scholar-4285F4?logo=googlescholar&labelColor=beige)](https://scholar.google.com/citations?view_op=view_citation&citation_for_view=Mf-JoyQAAAAJ:WF5omc3nYNoC)
 [![arXiv](https://img.shields.io/badge/2506.21046-b31b1b?logo=arxiv&labelColor=2d3339)](https://arxiv.org/abs/2506.21046)
 [![dblp](https://img.shields.io/badge/dblp-ICCV%202025-fbba00?logo=dblp&labelColor=004f9f)](https://dblp.org/#)
 
