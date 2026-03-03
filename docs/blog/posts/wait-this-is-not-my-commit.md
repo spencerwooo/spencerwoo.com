@@ -209,14 +209,14 @@ $ git cat-file -p c407d4e
   <figcaption>已经签名过的 commit 包含有我们使用的 PGP signature</figcaption>
 </figure>
 
-另外，这里如果出现类似的问题，可能是 Git 使用的 GPG 命令行工具跟我们生成密钥使用的不一致。我们可以首先用  `which gpg`  来找到我们所使用的 GPG 工具的具体地址，比如  `/usr/bin/gpg`，之后告诉 Git 使用这一 GPG binary 即可：
+另外，这里如果出现类似的问题，可能是 Git 使用的 GPG 命令行工具跟我们生成密钥使用的不一致。我们可以首先用  `which gpg`  来找到我们所使用的 GPG 工具的具体路径，比如  `/usr/bin/gpg`，之后告诉 Git 使用这一 GPG binary 即可：
 
 ```
 $ git config --global gpg.program /usr/bin/gpg
 ```
 
 !!! tip
-    🥦 Windows 上的同学，也可以使用 `which` 命令！只需要用 scoop 安装：`scoop install which`，即可方便的用类似 Linux 上的语法找到相应的可执行文件具体路径。
+    🥦 Windows 上的同学，可以在 cmd 中使用  `where`  命令或 PowerShell 中使用  `Get-Command`  命令找到相应的可执行文件具体路径；如果也想使用  `which`  命令，可通过 scoop 安装：`scoop install which`。
 
 ### **告诉 GitHub 自己的 GPG 公钥**
 
